@@ -61,9 +61,11 @@
 		    <nav id="docs-nav" class="docs-nav navbar">
 			    <ul class="section-items list-unstyled nav flex-column pb-3">
 				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Windows</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Linux</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation and usage</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-0">Up and running</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Windows installation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Linux installation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Functions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Create Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
@@ -136,13 +138,30 @@ true
 			    
 			    <article class="docs-article" id="section-2">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Installation</h1>
+					    <h1 class="docs-heading">Installation and usage</h1>
 					    <section class="docs-intro">
 						    <p>This library can be installed as an SDK on Windows and Linux. It can also be compiled as a dynamic-linked library (DLL) or a linux dynamic library (.so). </p>
 						</section><!--//docs-intro-->
 				    </header>
-				     <section class="docs-section" id="item-2-1">
-						<h2 class="section-heading">Windows</h2>
+				     <section class="docs-section" id="item-2-0">
+					     	<h2 class="section-heading">Up and running</h2>
+					     	You can download the pre-compiled libraries for Windows and Linux, and directly implement them in your C programs, python scripts, or any other language that allows loading DLLs and shared objects. Here are some examples on how to load and use the library:
+					     	<p>	
+					     	<h5>C example</h5>
+					     	<br>
+						<script src="https://gist.github.com/dgomezde83/046072d7854cdf99ed28541002893b06.js"></script>
+						<br>
+					     	<p>
+						<h5>Python example</h5>
+					        <br>
+					        <script src="https://gist.github.com/dgomezde83/cf4cb46adf7530c6cee7f060449a4341.js"></script>
+					        <br>
+				      </section><!--//section-->
+				    
+				      <section class="docs-section" id="item-2-1">
+						<h3 class="section-heading">Windows installation</h3>
+						<p>
+						If you wish to compile the library yourself, you should install the following libraries
 						<p>
 						<h5>OpenSSL</h5>
 						<ul>
@@ -159,31 +178,38 @@ true
 						<ul>
 						<li>You need the libsodium library binaries to run Multifungible.</li>
 						<li>Download <a href="https://download.libsodium.org/libsodium/releases/">here</a> the latest pre-builts for mingw compiler.</li>
-						<li>Uncompress the .tar.gz</li>
-						<li>Paste the "include" folder to the root of the Multifungible library. Merge it with the existing include folder.</li>
-						<li>Paste the "lib" folder to the root of the Multifungible library. Merge it with the existing include folder.</li>
+						<li>Uncompress the .tar.gz into your location of choice.</li>
 						</ul>
 						</p>
-						</p>
-						<h5>Google tests</h5>
-						<ul>
-						<li>If you want to run the test suit of the Multifungible SDK, you need to install googletests.</li>
-						<li>You will need cmake, Mingw64 and the latest version of googletests from <a href="https://github.com/google/googletest/releases/">here</a>.</li>
-						<li>Uncompress the googletests' source code zip. Open a command prompt on its root directory.</li>
-						<li>Run: <code class="language-bash">cd build</code></li>
-						<li>Copy the four libraries (libgmock.a, libgmock_main.a, libgtest.a, libgtest_main.a) to the "lib" directory of the Multifungible folder."</li>
-						</ul>
 						</p>
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-2-2">
-						<h2 class="section-heading">Linux</h2>
+						<h2 class="section-heading">Linux installation</h2>
 						<p>
 						<ul>
-						<li>To compile the library on Linux along with your project, you need to install OpenSSL 3.0.8 or higher.  You can follow the excellent tutorial at <a href="https://linuxhint.com/install-openssl-3-from-source/">https://linuxhint.com/install-openssl-3-from-source/</a></li>
-						<li>Run the makefile</li>
+						<li>To compile the library on Linux along with your project, you will need the latest version of openssl 3 and libsodium.</li>
+						<li>To install openssl headers and library, and the libsodium headers, run the install.sh script.</li>
+						<li>To install the libsodium library, go to <a href="https://download.libsodium.org/libsodium/releases/">this page</a>, and download the latest stable release. Then, run the commands <code>./configure</code>, <code>make && make check</code> and <code>sudo make install</code></li>
 						</p>
 						</ul>
+					</section><!--//section-->
+	
+					<section class="docs-section" id="item-2-3">
+					<h2 class="section-heading">Compilation</h2>
+					<p>
+					Now that you have the necessary libraries installed, you are going to run cmake to compile the Multifungible library. A compilation script is provided for windows and linux. Please, modify it and set the value of the following macros to successfully compile the product:
+					<ul>
+					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: -DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe" on windows. usually, no need to set this on linux.</li>
+					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: -DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe" on windows. usually, no need to set this on linux.</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: -DMULTIFUNGIBLE_NETWORK=Mainnet (without ""). Compulsory.</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. Example: -DMULTIFUNGIBLE_CONFIG_FILE=./config.toml (without ""). Compulsory.</li>
+					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the headers of the libsodium library. Example: -DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include". No need to set this on linux.</li>
+					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: -DLIBSODIUM_LIB_PATH="C:/libsidum/lib". No need to set this on linux.</li>
+					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the headers of the openssl library. Example: -DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include". No need to set this on linux.</li>
+					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib)/ Example: -DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib". No need to set this on linux.</li>
+					</ul>
+					<p>
 					</section><!--//section-->
 					
 			    </article><!--//docs-article-->

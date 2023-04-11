@@ -119,6 +119,7 @@
 						<li>Create Non-fungible tokens belonging to a collection.</li>
 						<li>Manage the rights of a collection.</li>
 					    	</ul>
+					    	<h5>Example of the outputs of some library functions:</h5>
 					    	<div class="docs-code-block">
 							<pre class="shadow-lg rounded"><code>Wallet1: erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 Wallet2: erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
@@ -194,16 +195,19 @@ true
 					<section class="docs-section" id="item-2-3">
 					<h2 class="section-heading">Compilation</h2>
 					<p>
-					Now that you have the necessary libraries installed, you are going to run cmake to compile the Multifungible library. A compilation script is provided for windows and linux. Please, modify it and set the value of the following macros to successfully compile the product:
+					Now that you have the necessary libraries installed, you are going to run cmake to compile the Multifungible library. A compilation script is provided for windows and linux. Please, modify it and set the value of the following macro to successfully compile the product:
 					<ul>
-					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe"</code> on windows. usually, no need to set this on linux.</li>
-					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe</code>" on windows. usually, no need to set this on linux.</li>
-					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code>-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without ""). Compulsory.</li>
-					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. Example: <code>-DMULTIFUNGIBLE_CONFIG_FILE=./config.toml</code> (without ""). Compulsory.</li>
-					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the headers of the libsodium library. Example: <code>-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>. No need to set this on linux.</li>
-					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code>-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>. No need to set this on linux.</li>
-					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the headers of the openssl library. Example: <code>-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>. No need to set this on linux.</li>
-					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib). Example: <code>-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>. No need to set this on linux.</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code>-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without "").</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code>./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code>-DMULTIFUNGIBLE_CONFIG_FILE=./config.toml</code> (without "").</li>
+					</ul>
+					<p>If you are compiling on windows, please set the following macros as well:</p>
+					<ul>
+					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe"</code> on windows.</li>
+					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe</code>" on windows.</li>
+					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the headers of the libsodium library. Example: <code>-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
+					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code>-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>.</li>
+					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the headers of the openssl library. Example: <code>-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
+					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib). Example: <code>-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
 					</ul>
 					<p>
 					The script will compile either a DLL (if you're using windows) or a shared object (if you're using Linux) in the "bin" folder. This is the file that you need to have in your programs (along with config.toml) if you want to access Multifungible's functions.

@@ -41,7 +41,7 @@
                 </div><!--//docs-logo-wrapper-->
 	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">	
 					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-						<li class="list-inline-item"><a href="https://github.com/dgomezde83/Multifungible-sdk-cpp"><i class="fab fa-github fa-fw"></i></a></li>
+						<li class="list-inline-item"><a href="https://github.com/dgomezde83/Multifungible-library"><i class="fab fa-github fa-fw"></i></a></li>
 		            </ul><!--//social-list-->
 		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
 	            </div><!--//docs-top-utilities-->
@@ -107,9 +107,9 @@
 		    <div class="container">
 			    <article class="docs-article" id="section-1">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">What is the MultiFungible SDK and API ? </h1>
+					    <h1 class="docs-heading">What is the MultiFungible Library ? </h1>
 					    <section class="docs-intro">
-						    <p>The MultiFungible software development kit (SDK) and application-specific interface (API) is a cross-platform library written in C++ that allows to create and manage non-fungible tokens (NFTs) and semi-fungible tokens (SFTs) in the Multivers X blockchain.</p>
+						    <p>The MultiFungible Library is a cross-platform library written in C++ that allows to create and manage non-fungible tokens (NFTs) and semi-fungible tokens (SFTs) in the Multivers X blockchain. It can be used as software development kit (SDK) in C++, and also as an application-specific interface (API) from any application.</p>
 						</section><!--//docs-intro-->
 						
 						<h5>Example:</h5>
@@ -165,12 +165,13 @@ true
 						<p>
 						<h5>OpenSSL 3.0.8 or higher</h5>
 						<ul>
-						<li>Follow the <a href="https://developers.refinitiv.com/en/article-catalog/article/how-to-build-openssl--zlib--and-curl-libraries-on-windows">tutorial</a> to install Openssl on windows. Here is a small summary of the steps:</li>
+						<li>Follow the <a href="https://developers.refinitiv.com/en/article-catalog/article/how-to-build-openssl--zlib--and-curl-libraries-on-windows">tutorial</a> to install OpenSSL on windows. Here is a small summary of the steps:</li>
 						<li>Open the x64 Native tools command prompt</li>
-						<li>Run: <code class="language-bash">perl Configure VC-WIN64A --prefix=c:\local\openssl3.0.8</code></li>
+						<li>Run: <code class="language-bash">perl Configure VC-WIN64A --prefix=c:\local\openssl3.0.8</code> (you may replace the prefix with the installation path of your choice).</li>
 						<li>REMOVE ALL OCCURENCES OF -DOPENSSL_USE_APPLINK from the make file (so we don't need to use applink.c in our applications).</li>
 						<li>Run: <code class="language-bash">nmake</code></li>
 						<li>Run: <code class="language-bash">nmake install</code></li>
+						<li>The OpenSSL headers and libraries will be installed in the installation path you provided</li>
 						</ul>
 						</p>
 						<h5>Sodium</h5>
@@ -2594,7 +2595,7 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 				        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
 			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
 				        <ul class="social-list list-unstyled pt-4 mb-0">
-						    <li class="list-inline-item"><a href="https://github.com/dgomezde83/Multifungible-sdk-cpp"><i class="fab fa-github fa-fw"></i></a></li>
+						    <li class="list-inline-item"><a href="https://github.com/dgomezde83/Multifungible-library"><i class="fab fa-github fa-fw"></i></a></li>
 				        </ul><!--//social-list-->
 				    </div>
 			    </footer>

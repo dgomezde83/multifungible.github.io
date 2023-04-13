@@ -66,6 +66,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Windows installation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Linux installation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Google tests</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Functions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Create Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
@@ -123,7 +124,7 @@
 					    	</ul>
 					    	<h5>Example of the outputs of some library functions:</h5>
 					    	<div class="docs-code-block">
-							<pre class="shadow-lg rounded"><code>Wallet1: erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
+							<code>Wallet1: erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 Wallet2: erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 Issued collection: ABCD-012345
 Issued token: ABCD-012345-01
@@ -131,7 +132,7 @@ Creation stopped successfully
 Sent 10 units of ABCD-012345-01 to erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2 successfully
 true
 true
-</code></pre>
+</code>
 				    </header>
 					
 			    </article>
@@ -196,25 +197,52 @@ true
 	
 					<section class="docs-section" id="item-2-3">
 					<h2 class="section-heading">Compilation</h2>
+					<h4>Library</h4>
 					<p>
-					Now that you have the necessary libraries installed, you are going to run cmake to compile the Multifungible library. A compilation script is provided for windows and linux. Please, modify it and set the value of the following macros:
+					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
-					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code>-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without "").</li>
-					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code>./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code>-DMULTIFUNGIBLE_CONFIG_FILE="./config.toml"</code>.</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without "").</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code style="white-space: nowrap;">./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_CONFIG_FILE="./config.toml"</code>.</li>
+					</ul>
+					<p>If you are compiling on windows with <code style="white-space: nowrap;">windows-compile.bat</code>, please set the following macros as well:</p>
+					<ul>
+					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: <code style="white-space: nowrap;">-DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe"</code>.</li>
+					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: <code style="white-space: nowrap;">-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe"</code>.</li>
+					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the "sodium" folder, which contains the headers of the libsodium library. Example: <code style="white-space: nowrap;">-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
+					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code style="white-space: nowrap;">-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>.</li>
+					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the "openssl" folder, containing the headers of the openssl library. Example: <code style="white-space: nowrap;">-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
+					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib). Example: <code style="white-space: nowrap;">-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
+					</ul>
+					<p>
+					The script will compile either a DLL (if you're using windows) or a shared object (if you're using Linux) into the "bin" folder. This is the file that you need to have in your programs (along with config.toml) if you want to access Multifungible's functions.
+	    
+					<h4>Google tests</h4>
+					<p>
+					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
+					<ul>
+					<li><b>BUILD_TESTS=ON</b>: This macro turns the Google test compilation ON. Usage: <style="white-space: nowrap;"code>--DBUILD_TESTS=ON</code>.</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Testnet</i> or <i>Devnet</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Testnet</code> or <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Devnet</code>.</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">./config folder/config.toml</code>.</li>
 					</ul>
 					<p>If you are compiling on windows, please set the following macros as well:</p>
 					<ul>
-					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe"</code> on windows.</li>
-					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: <code>-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe</code>" on windows.</li>
-					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the "sodium" folder, which contains the headers of the libsodium library. Example: <code>-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
-					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code>-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>.</li>
-					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the "openssl" folder, containing the headers of the openssl library. Example: <code>-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
-					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib). Example: <code>-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
+					<li><b>GOOGLETESTS_INCLUDE_PATH</b>: Select the location of the Google test headers folder. Example: <code style="white-space: nowrap;">-DGOOGLETESTS_INCLUDE_PATH="C:/GoogleTests/include"</code>.</li>
+					<li><b>GOOGLETESTS_LIB_PATH</b>: Select the location of the Google test lib folder. Example: <code style="white-space: nowrap;">-DGOOGLETESTS_LIB_PATH="C:/GoogleTests/lib"</code>.</li>
 					</ul>
 					<p>
-					The script will compile either a DLL (if you're using windows) or a shared object (if you're using Linux) in the "bin" folder. This is the file that you need to have in your programs (along with config.toml) if you want to access Multifungible's functions.
+					The script will compile an executable into the <i>'bin'</i> folder. This is the file that you need to execute in order to run the tests on the Testnet.
 					</section><!--//section-->
 					
+					<section class="docs-section" id="item-2-4">
+					<h2 class="section-heading">Run tests</h2>
+					<p>
+					You will need to execute the binary that you compiled on the previous section. Additionally, you will need to:
+					<ul>
+					<li>Create a set of three wallets in the <i>'./test'</i> folder. To create them, run the executable with the option <i>-c</i>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
+					<li>Fill up the <i>MULTIFUNGIBLE_MAINWALLET.json</i> public address with sufficient <a href="https://r3d4.fr/faucet">faucet</a> XEGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
+					</ul>
+					</section><!--//section-->
+						
 			    </article><!--//docs-article-->
 			    
 			    

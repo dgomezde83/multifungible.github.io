@@ -177,8 +177,19 @@ true
 						</p>
 						<h5>Sodium</h5>
 						<ul>
-						<li>Download <a href="https://download.libsodium.org/libsodium/releases/">here</a> the latest pre-builts for mingw compiler.</li>
+						<li>Download <a href="https://download.libsodium.org/libsodium/releases/">here</a> the latest pre-builts for GNU compiler.</li>
 						<li>Uncompress the .tar.gz into your location of choice. The resulting folder will contain the static library and the headers.</li>
+						</ul>
+				    		<h5>Google tests (optional)</h5>
+				    		<ul>
+						<li>To run the Google tests, download the last release <a href="https://github.com/google/googletest/releases/">here</a>.</li>
+						<li>Uncompress the .zip and open a terminal.</li>
+						<li>Type <code style="white-space: nowrap;">cd googletest</code></li>
+						<li>Type <code style="white-space: nowrap;">mkdir build</code></li>
+						<li>Type <code style="white-space: nowrap;">cd build</code></li>
+						<li>Type <code style="white-space: nowrap;">cmake ..</code></li>
+						<li>Type <code style="white-space: nowrap;">cmake --build .</code></li>
+						<li>This will create the <i>libgtest.a</i> library. Make sure to know where you store them, along with the <i>include</i> directory.</li>
 						</ul>
 						</p>
 						</p>
@@ -191,8 +202,9 @@ true
 						<li>If you wish to compile the library on Linux yourself, download the latest sources from the GitHub page by clicking the 'Download' button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
 						<li>To install OpenSSL 3 headers and library, and the libsodium headers, run the install.sh script.</li>
 						<li>To install the libsodium library, go to <a href="https://download.libsodium.org/libsodium/releases/">this page</a>, and download the latest stable release. Then, run the commands <code>./configure</code>, <code>make && make check</code> and <code>sudo make install</code></li>
-						</p>
+						<li>If you wish to run the Google tests suite, install googletests on your system by typing <code style="white-space: nowrap;">sudo apt-get install libgtest-dev</code>, then <code style="white-space: nowrap;">cd /usr/src/gtest</code> and <code style="white-space: nowrap;">sudo cmake CMakeLists.txt</code> followed by <code style="white-space: nowrap;">sudo make</code>.</li>
 						</ul>
+						</p>
 					</section><!--//section-->
 	
 					<section class="docs-section" id="item-2-3">
@@ -211,10 +223,10 @@ true
 					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the "sodium" folder, which contains the headers of the libsodium library. Example: <code style="white-space: nowrap;">-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
 					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code style="white-space: nowrap;">-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>.</li>
 					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the "openssl" folder, containing the headers of the openssl library. Example: <code style="white-space: nowrap;">-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
-					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (libcrypto.lib and libssl.lib). Example: <code style="white-space: nowrap;">-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
+					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (<code style="white-space: nowrap;">libcrypto.lib</code> and <code style="white-space: nowrap;">libssl.lib</code>). Example: <code style="white-space: nowrap;">-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
 					</ul>
 					<p>
-					The script will compile either a DLL (if you're using windows) or a shared object (if you're using Linux) into the "bin" folder. This is the file that you need to have in your programs (along with config.toml) if you want to access Multifungible's functions.
+					The script will compile either a DLL (if you're using windows) or a shared object (if you're using Linux) into the <code style="white-space: nowrap;">./bin</code> folder. This is the file that you need to have in your programs (along with <code style="white-space: nowrap;">config.toml</code>) if you want to access Multifungible's functions.
 	    
 					<h4>Google tests</h4>
 					<p>
@@ -230,7 +242,7 @@ true
 					<li><b>GOOGLETESTS_LIB_PATH</b>: Select the location of the Google test lib folder. Example: <code style="white-space: nowrap;">-DGOOGLETESTS_LIB_PATH="C:/GoogleTests/lib"</code>.</li>
 					</ul>
 					<p>
-					The script will compile an executable into the <i>'bin'</i> folder. This is the file that you need to execute in order to run the tests on the Testnet.
+					The script will compile an executable into the <code style="white-space: nowrap;">./bin</code> folder. This is the file that you need to execute in order to run the tests on the Testnet.
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-2-4">
@@ -238,8 +250,8 @@ true
 					<p>
 					You will need to execute the binary that you compiled on the previous section. Additionally, you will need to:
 					<ul>
-					<li>Create a set of three wallets in the <i>'./test'</i> folder. To create them, run the executable with the option <i>-c</i>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
-					<li>Fill up the <i>MULTIFUNGIBLE_MAINWALLET.json</i> public address with sufficient <a href="https://r3d4.fr/faucet">faucet</a> XEGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
+					<li>Create a set of three wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
+					<li>Fill up the <i>MULTIFUNGIBLE_MAINWALLET.json</i> public address with sufficient <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
 					</ul>
 					</section><!--//section-->
 						

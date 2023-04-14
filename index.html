@@ -168,7 +168,7 @@ true
 						<ul>
 						<li>Follow the <a href="https://developers.refinitiv.com/en/article-catalog/article/how-to-build-openssl--zlib--and-curl-libraries-on-windows">tutorial</a> to install OpenSSL on windows. Here is a small summary of the steps:</li>
 						<li>Open the x64 Native tools command prompt</li>
-						<li>Run: <code class="language-bash">perl Configure VC-WIN64A --prefix=c:\local\openssl3.0.8</code> (you may replace the prefix with the installation path of your choice).</li>
+						<li>Run: <code class="language-bash">perl Configure VC-WIN64A --prefix=C:\local\openssl3.0.8</code> (you may replace the prefix with the installation path of your choice).</li>
 						<li>Run: <code class="language-bash">nmake</code></li>
 						<li>Run: <code class="language-bash">nmake install</code></li>
 						<li>The OpenSSL headers and libraries will be installed in the installation path you provided.</li>
@@ -231,9 +231,9 @@ true
 					<p>
 					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
-					<li><b>BUILD_TESTS=ON</b>: This macro turns the Google test compilation ON. Usage: <code style="white-space: nowrap;">--DBUILD_TESTS=ON</code>.</li>
+					<li><b>BUILD_TESTS</b>: This macro turns the Google test compilation ON. It is set to OFF by default. To use it, <code style="white-space: nowrap;">-DBUILD_TESTS=ON</code>.</li>
 					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Testnet</i> or <i>Devnet</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Testnet</code> or <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Devnet</code>.</li>
-					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">./config folder/config.toml</code>.</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">../config folder/config.toml</code>.</li>
 					</ul>
 					<p>If you are compiling on windows, please set the following macros as well:</p>
 					<ul>
@@ -247,7 +247,7 @@ true
 					<section class="docs-section" id="item-2-4">
 					<h2 class="section-heading">Run tests</h2>
 					<p>
-					You will need to execute the binary that you compiled on the previous section. Additionally, you will need to:
+					You will need to execute the binary that you compiled on the previous section from the <code style="white-space: nowrap;">./bin</code> folder. Additionally, you will need to:
 					<ul>
 					<li>Create a set of three wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
 					<li>Fill up the <i>MULTIFUNGIBLE_MAINWALLET.json</i> public address with sufficient <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>

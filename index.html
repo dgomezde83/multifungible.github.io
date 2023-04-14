@@ -247,10 +247,12 @@ true
 					<section class="docs-section" id="item-2-4">
 					<h2 class="section-heading">Run tests</h2>
 					<p>
-					You will need to execute the binary that you compiled on the previous section from the <code style="white-space: nowrap;">./bin</code> folder. Additionally, you will need to:
+					In order to run the 90-test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
 					<ul>
-					<li>Create a set of three wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
-					<li>Fill up the <i>MULTIFUNGIBLE_MAINWALLET.json</i> public address with sufficient <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
+					<li>Create a set of test wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
+					<li>Fill up the required wallet's public address with the demanded quantity of <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
+					<li>Run the program <code style="white-space: nowrap;">.\Multifungible.exe</code>. This will run all the tests one by one</li>
+					<li>It is possible that some tests fail. Keep in mind that these tests rely heavily on the Testnet/Devnet blockchain, and sometimes, the information retrieved from the API is not up to date.</li>
 					</ul>
 					</section><!--//section-->
 						

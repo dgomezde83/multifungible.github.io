@@ -124,7 +124,7 @@
 					    	</ul>
 					    	<h5>Example of the outputs of some library functions:</h5>
 					    	<div class="docs-code-block">
-							<code>Wallet1: erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
+							<pre class="shadow-lg rounded"><code class="json hljs">Wallet1: erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 Wallet2: erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 Issued collection: ABCD-012345
 Issued token: ABCD-012345-01
@@ -132,7 +132,7 @@ Creation stopped successfully
 Sent 10 units of ABCD-012345-01 to erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2 successfully
 true
 true
-</code>
+</code></pre>
 				    </header>
 					
 			    </article>
@@ -169,7 +169,6 @@ true
 						<li>Follow the <a href="https://developers.refinitiv.com/en/article-catalog/article/how-to-build-openssl--zlib--and-curl-libraries-on-windows">tutorial</a> to install OpenSSL on windows. Here is a small summary of the steps:</li>
 						<li>Open the x64 Native tools command prompt</li>
 						<li>Run: <code class="language-bash">perl Configure VC-WIN64A --prefix=c:\local\openssl3.0.8</code> (you may replace the prefix with the installation path of your choice).</li>
-						<li>REMOVE ALL OCCURENCES OF -DOPENSSL_USE_APPLINK from the make file (so we don't need to use applink.c in our applications).</li>
 						<li>Run: <code class="language-bash">nmake</code></li>
 						<li>Run: <code class="language-bash">nmake install</code></li>
 						<li>The OpenSSL headers and libraries will be installed in the installation path you provided.</li>
@@ -182,7 +181,7 @@ true
 						</ul>
 				    		<h5>Google tests (optional)</h5>
 				    		<ul>
-						<li>To run the Google tests, download the last release <a href="https://github.com/google/googletest/releases/">here</a>.</li>
+						<li>To run the Google tests, download the latest release <a href="https://github.com/google/googletest/releases/">here</a>.</li>
 						<li>Uncompress the .zip and open a terminal.</li>
 						<li>Type <code style="white-space: nowrap;">cd googletest</code></li>
 						<li>Type <code style="white-space: nowrap;">mkdir build</code></li>
@@ -199,7 +198,7 @@ true
 						<h2 class="section-heading">Linux installation</h2>
 						<p>
 						<ul>
-						<li>If you wish to compile the library on Linux yourself, download the latest sources from the GitHub page by clicking the 'Download' button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
+						<li>If you wish to compile the library on Linux yourself, download the latest sources from the GitHub page by clicking the <i>Download</i> button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
 						<li>To install OpenSSL 3 headers and library, and the libsodium headers, run the install.sh script.</li>
 						<li>To install the libsodium library, go to <a href="https://download.libsodium.org/libsodium/releases/">this page</a>, and download the latest stable release. Then, run the commands <code>./configure</code>, <code>make && make check</code> and <code>sudo make install</code></li>
 						<li>If you wish to run the Google tests suite, install googletests on your system by typing <code style="white-space: nowrap;">sudo apt-get install libgtest-dev</code>, then <code style="white-space: nowrap;">cd /usr/src/gtest</code> and <code style="white-space: nowrap;">sudo cmake CMakeLists.txt</code> followed by <code style="white-space: nowrap;">sudo make</code>.</li>
@@ -213,16 +212,16 @@ true
 					<p>
 					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
-					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without "").</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without " ").</li>
 					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code style="white-space: nowrap;">./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_CONFIG_FILE="./config.toml"</code>.</li>
 					</ul>
 					<p>If you are compiling on windows with <code style="white-space: nowrap;">windows-compile.bat</code>, please set the following macros as well:</p>
 					<ul>
 					<li><b>CMAKE_C_COMPILER</b>: Select the location of the C compiler. Example: <code style="white-space: nowrap;">-DCMAKE_C_COMPILER="C:/TDM-GCC-64/bin/gcc.exe"</code>.</li>
-					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C compiler. Example: <code style="white-space: nowrap;">-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe"</code>.</li>
-					<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the "sodium" folder, which contains the headers of the libsodium library. Example: <code style="white-space: nowrap;">-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
-					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (libsodium.a). Example: <code style="white-space: nowrap;">-DLIBSODIUM_LIB_PATH="C:/libsidum/lib"</code>.</li>
-					<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the "openssl" folder, containing the headers of the openssl library. Example: <code style="white-space: nowrap;">-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
+					<li><b>CMAKE_CXX_COMPILER</b>: Select the location of the C++ compiler. Example: <code style="white-space: nowrap;">-DCMAKE_CXX_COMPILER="C:/TDM-GCC-64/bin/g++.exe"</code>.</li>
+						<li><b>LIBSODIUM_INCLUDE_PATH</b>: Select the path to the <i>sodium</i> folder, which contains the headers of the libsodium library. Example: <code style="white-space: nowrap;">-DLIBSODIUM_INCLUDE_PATH="C:/libsodium/include"</code>.</li>
+					<li><b>LIBSODIUM_LIB_PATH</b>: Select the path to the compiled libsodium library (<code style="white-space: nowrap;">libsodium.a</code>). Example: <code style="white-space: nowrap;">-DLIBSODIUM_LIB_PATH="C:/libsodium/lib"</code>.</li>
+						<li><b>OPENSSL_INCLUDE_PATH</b>: Select the path to the <i>openssl</i> folder, containing the headers of the openssl library. Example: <code style="white-space: nowrap;">-DOPENSSL_INCLUDE_PATH="C:/openssl3.0.8/include"</code>.</li>
 					<li><b>OPENSSL_LIB_PATH</b>: Select the path to the compiled openssl library (<code style="white-space: nowrap;">libcrypto.lib</code> and <code style="white-space: nowrap;">libssl.lib</code>). Example: <code style="white-space: nowrap;">-DOPENSSL_LIB_PATH="C:/openssl3.0.8/lib"</code>.</li>
 					</ul>
 					<p>
@@ -232,7 +231,7 @@ true
 					<p>
 					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
-					<li><b>BUILD_TESTS=ON</b>: This macro turns the Google test compilation ON. Usage: <style="white-space: nowrap;"code>--DBUILD_TESTS=ON</code>.</li>
+					<li><b>BUILD_TESTS=ON</b>: This macro turns the Google test compilation ON. Usage: <code style="white-space: nowrap;">--DBUILD_TESTS=ON</code>.</li>
 					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Testnet</i> or <i>Devnet</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Testnet</code> or <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Devnet</code>.</li>
 					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">./config folder/config.toml</code>.</li>
 					</ul>
@@ -262,12 +261,12 @@ true
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Functions</h1>
 					    <section class="docs-intro">
-						    <p>These are the functions that can be called either as an SDK library from another program, or as DLL exportable functions.</p>
+						    <p>These are the functions that can be called either as a C++ SDK library, or as DLL/shared object exportable functions.</p>
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">Create Wallet</h2>
-						<p><code>returnCodeAndChar createWallet</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar createWallet</code></p>
 						<p>Creates a PEM wallet file of the specified name on the hard drive, and encrypts it with the specified password.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -280,20 +279,20 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to encrypt the PEM file.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -304,13 +303,13 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address of the created wallet if the operation successful. Error information if it wasn't</td>
 								</tr>
 							</tbody>
@@ -329,7 +328,7 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 					
 					<section class="docs-section" id="item-3-2">
 						<h2 class="section-heading">Load Wallet</h2>
-						<p><code>returnCodeAndChar loadWallet</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar loadWallet</code></p>
 						<p>Loads a PEM wallet file of the specified name on the hard drive, and decrypts it with the specified password.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -342,20 +341,20 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -366,13 +365,13 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address of the created wallet if the operation successful. Error information if it wasn't</td>
 								</tr>
 							</tbody>
@@ -391,7 +390,7 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 					
 					<section class="docs-section" id="item-3-3">
 						<h2 class="section-heading">Issue SFT Collection</h2>
-						<p><code>returnCodeAndChar issueSFTCollection</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar issueSFTCollection</code></p>
 						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -405,76 +404,76 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_sftName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_sftName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Name to give to the collection. Must be alphanumeric, between 3 and 20 characters.</td>
 								</tr>
 								<tr>
-									<td><code>p_sftTicker</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_sftTicker</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Ticker to give to the collection. Must be alphanumeric, between 3 and 10 characters.</td>
 								</tr>
 								<tr>
-									<td><code>p_canFreeze</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canFreeze</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow the collection to be freezed by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canWipe</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canWipe</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow a token from the collection to be wiped by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canPause</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canPause</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to pause the issuance of tokens of the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canTransferNFTCreateRole</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canTransferNFTCreateRole</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow the account that has the ability to issue tokens on this collection to transfer this ability to another account. Only one account can have this ability at a given time, for the collection.</td>
 								</tr>
 								<tr>
-									<td><code>p_canChangeOwner</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canChangeOwner</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to change the owner of the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canUpgrade</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to upgrade the roles that an account possesses on the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canAddSpecialRoles</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to add roles to the collection by an account that possesses the right to do so.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -485,13 +484,13 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Collection ID if the operation was successful. Error information if it wasn't.</td>
 								</tr>
 							</tbody>
@@ -510,7 +509,7 @@ ABCD-012345
 					
 					<section class="docs-section" id="item-3-4">
 						<h2 class="section-heading">Issue NFT Collection</h2>
-						<p><code>returnCodeAndChar issueNFTCollection</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar issueNFTCollection</code></p>
 						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -524,76 +523,76 @@ ABCD-012345
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_nftName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_nftName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Name to give to the collection. Must be alphanumeric, between 3 and 20 characters.</td>
 								</tr>
 								<tr>
-									<td><code>p_nftTicker</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_nftTicker</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Required</td>
 									<td>Ticker to give to the collection. Must be alphanumeric, between 3 and 10 characters.</td>
 								</tr>
 								<tr>
-									<td><code>p_canFreeze</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canFreeze</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow the collection to be freezed by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canWipe</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canWipe</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow a token from the collection to be wiped by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canPause</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canPause</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to pause the issuance of tokens of the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canTransferNFTCreateRole</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canTransferNFTCreateRole</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow the account that has the ability to issue tokens on this collection to transfer this ability to another account. Only one account can have this ability at a given time, for the collection.</td>
 								</tr>
 								<tr>
-									<td><code>p_canChangeOwner</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canChangeOwner</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to change the owner of the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canUpgrade</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to upgrade the roles that an account possesses on the collection by an account that possesses the right to do so.</td>
 								</tr>
 								<tr>
-									<td><code>p_canAddSpecialRoles</code></td>
-									<td><code>bool</code></td>
-									<td><code>false</code></td>
+									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td><code style="white-space: nowrap;">false</code></td>
 									<td>Allow to add roles to the collection by an account that possesses the right to do so.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -604,13 +603,13 @@ ABCD-012345
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Collection ID if the operation was successful. Error information if it wasn't.</td>
 								</tr>
 							</tbody>
@@ -629,7 +628,7 @@ ABCD-012345
 					
 					<section class="docs-section" id="item-3-5">
 						<h2 class="section-heading">Issue SFT Token</h2>
-						<p><code>returnCodeAndChar issueSemiFungibleToken</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar issueSemiFungibleToken</code></p>
 						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -642,50 +641,50 @@ ABCD-012345
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_name</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_name</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Name to give to the token.</td>
 								</tr>
 								<tr>
-									<td><code>p_emitAmount</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_emitAmount</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Number of tokens to emit.</td>
 								</tr>
 								<tr>
-									<td><code>p_royalties</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_royalties</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%)</td>
 								</tr>
 								<tr>
-									<td><code>p_attributes</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_attributes</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Additional information about the token. Should have the format <em>metadata:ipfsCID/fileName.json;tags:tag1,tag2,tag3</em>, where <em>metadata:ipfsCID/fileName.json</em> is an IPFS address to a JSON containing a representation of the attributes of the token.</td>
 								</tr>
 								<tr>
-									<td><code>p_uri</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_uri</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>URL to a media file representing the token in some way. The media should be of a type supported by Multivers X.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -696,13 +695,13 @@ ABCD-012345
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Token ID if the operation was successful. Error information if it wasn't.</td>
 								</tr>
 							</tbody>
@@ -721,7 +720,7 @@ ABCD-012345-0a
 					
 					<section class="docs-section" id="item-3-6">
 						<h2 class="section-heading">Issue NFT Token</h2>
-						<p><code>returnCodeAndChar issueNonFungibleToken</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar issueNonFungibleToken</code></p>
 						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -734,45 +733,45 @@ ABCD-012345-0a
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_name</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_name</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Name to give to the token.</td>
 								</tr>
 								<tr>
-									<td><code>p_royalties</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_royalties</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%)</td>
 								</tr>
 								<tr>
-									<td><code>p_attributes</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_attributes</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Additional information about the token. Should have the format <em>metadata:ipfsCID/fileName.json;tags:tag1,tag2,tag3</em>, where <em>metadata:ipfsCID/fileName.json</em> is an IPFS address to a JSON containing a representation of the attributes of the token.</td>
 								</tr>
 								<tr>
-									<td><code>p_uri</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_uri</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>URL to a media file representing the token in some way. The media should be of a type supported by Multivers X.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -783,13 +782,13 @@ ABCD-012345-0a
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Token ID if the operation was successful. Error information if it wasn't.</td>
 								</tr>
 							</tbody>
@@ -808,7 +807,7 @@ ABCD-012345-0a
 					
 					<section class="docs-section" id="item-3-7">
 						<h2 class="section-heading">Add role to collection</h2>
-						<p><code>returnCodeAndChar addCollectionRole</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar addCollectionRole</code></p>
 						<p>Give a role on a collection to an address.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -821,35 +820,35 @@ ABCD-012345-0a
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address of the account to take the role on the collection.</td>
 								</tr>
 								<tr>
-									<td><code>p_role</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_role</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Role to give to the account on the collection (Ex: ESDTRoleNFTAddQuantity).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -860,13 +859,13 @@ ABCD-012345-0a
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -885,7 +884,7 @@ Added Role successfully
 					
 					<section class="docs-section" id="item-3-8">
 						<h2 class="section-heading">Add URI</h2>
-						<p><code>returnCodeAndChar addURI</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar addURI</code></p>
 						<p>Add an URI to a token of an NFT collection.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -898,30 +897,30 @@ Added Role successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_uri</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_uri</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>URI to add to the token (Ex: https:// ...).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -932,13 +931,13 @@ Added Role successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -957,7 +956,7 @@ Added URI successfully
 					
 					<section class="docs-section" id="item-3-9">
 						<h2 class="section-heading">Add SFT quantity</h2>
-						<p><code>returnCodeAndChar addSFTQuantity</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar addSFTQuantity</code></p>
 						<p>Add a quantity of SFT tokens to an existing token.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -970,30 +969,30 @@ Added URI successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the SFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_quantity</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_quantity</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Quantity of new tokens to add to the existing number of SFT tokens of an SFT collection.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1004,13 +1003,13 @@ Added URI successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1029,7 +1028,7 @@ Emitted 10 tokens successfully
 					
 					<section class="docs-section" id="item-3-10">
 						<h2 class="section-heading">Burn NFT or SFT quantity</h2>
-						<p><code>returnCodeAndChar burnSFTQuantity</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar burnSFTQuantity</code></p>
 						<p>Burn a quantity of SFT tokens from an existing token, or a single NFT.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1042,30 +1041,30 @@ Emitted 10 tokens successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_quantity</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_quantity</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Quantity of tokens to burn from the existing number of SFT tokens of an SFT collection. If the token is an NFT, the quantity to burn is 1.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1076,13 +1075,13 @@ Emitted 10 tokens successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1101,7 +1100,7 @@ Burned 10 tokens successfully
 					
 					<section class="docs-section" id="item-3-11">
 						<h2 class="section-heading">Wipe NFT</h2>
-						<p><code>returnCodeAndChar wipeNFT</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar wipeNFT</code></p>
 						<p>Wipe (delete from the blockchain) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1114,30 +1113,30 @@ Burned 10 tokens successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_ownerAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public blackclisted address of the owner of the token.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1148,13 +1147,13 @@ Burned 10 tokens successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1173,7 +1172,7 @@ Wiped NFT successfully
 					
 					<section class="docs-section" id="item-3-12">
 						<h2 class="section-heading">Freeze NFT</h2>
-						<p><code>returnCodeAndChar freezeNFT</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar freezeNFT</code></p>
 						<p>Freeze (block the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1186,30 +1185,30 @@ Wiped NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_ownerAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public blackclisted address of the owner of the token.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1220,13 +1219,13 @@ Wiped NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1245,7 +1244,7 @@ Froze NFT successfully
 					
 					<section class="docs-section" id="item-3-13">
 						<h2 class="section-heading">Unfreeze NFT</h2>
-						<p><code>returnCodeAndChar unfreezeNFT</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar unfreezeNFT</code></p>
 						<p>Unfreeze (restore the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1258,30 +1257,30 @@ Froze NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_ownerAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public blackclisted address of the owner of the token.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1292,13 +1291,13 @@ Froze NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1317,7 +1316,7 @@ Unfroze NFT successfully
 					
 					<section class="docs-section" id="item-3-14">
 						<h2 class="section-heading">Transfer NFT Creation role</h2>
-						<p><code>returnCodeAndChar transferCreationRole</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar transferCreationRole</code></p>
 						<p>Transfer the creation role (the ability to issue new tokens) of an NFT or SFT collection from an account to another. Only one account can possess this role at a given time.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1330,30 +1329,30 @@ Unfroze NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to transfer the role to.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1364,13 +1363,13 @@ Unfroze NFT successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1389,7 +1388,7 @@ Role transfered successfully
 					
 					<section class="docs-section" id="item-3-15">
 						<h2 class="section-heading">Stop NFT or SFT creation</h2>
-						<p><code>returnCodeAndChar stopTokenCreation</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar stopTokenCreation</code></p>
 						<p>Stop the ability to create new tokens on an NFT or SFT collection. This method can be called by the manager of a collection, and removes the creation role (ESDTRoleNFTCreate) from whoever possesses it.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1402,25 +1401,25 @@ Role transfered successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1431,13 +1430,13 @@ Role transfered successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1456,7 +1455,7 @@ Creation stopped successfully
 					
 					<section class="docs-section" id="item-3-16">
 						<h2 class="section-heading">Upgrade Properties</h2>
-						<p><code>returnCodeAndChar upgradeProperties</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar upgradeProperties</code></p>
 						<p>Upgrade the properties of an NFT or SFT collection.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1469,35 +1468,35 @@ Creation stopped successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_property</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_property</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Property of the collection to upgrade.</td>
 								</tr>
 								<tr>
-									<td><code>p_newValue</code></td>
-									<td><code>bool</code></td>
+									<td><code style="white-space: nowrap;">p_newValue</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
 									<td>Boolean indicating whether the collection now possesses the property or not.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1508,13 +1507,13 @@ Creation stopped successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1533,7 +1532,7 @@ Upgraded Property successfully
 					
 					<section class="docs-section" id="item-3-17">
 						<h2 class="section-heading">Transfer Ownership</h2>
-						<p><code>returnCodeAndChar transferOwnership</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar transferOwnership</code></p>
 						<p>Transfer the ownership of a collection, giving the management rights to the new address.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1546,30 +1545,30 @@ Upgraded Property successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address of the new owner of the collection.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1580,13 +1579,13 @@ Upgraded Property successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1605,7 +1604,7 @@ Transfered ownership successfully
 					
 					<section class="docs-section" id="item-3-18">
 						<h2 class="section-heading">Send NFT token</h2>
-						<p><code>returnCodeAndChar NFTTransaction</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar NFTTransaction</code></p>
 						<p>Send an NFT token to an address.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1618,30 +1617,30 @@ Transfered ownership successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_destinationAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_destinationAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to send the token to.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1652,13 +1651,13 @@ Transfered ownership successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1677,7 +1676,7 @@ Sent "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-19">
 						<h2 class="section-heading">Send SFT token</h2>
-						<p><code>returnCodeAndChar SFTTransaction</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar SFTTransaction</code></p>
 						<p>Send an SFT token to an address.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1690,30 +1689,30 @@ Sent "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_destinationAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_destinationAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to send the token to.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1724,13 +1723,13 @@ Sent "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1749,7 +1748,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-20">
 						<h2 class="section-heading">Send EGLD</h2>
-						<p><code>returnCodeAndChar EGLDTransaction</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar EGLDTransaction</code></p>
 						<p>Send EGLD to an address.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1762,30 +1761,30 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_destinationAddress</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_destinationAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to send the token to.</td>
 								</tr>
 								<tr>
-									<td><code>p_amount</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">p_amount</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>Quantity of EGLD to send.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1796,13 +1795,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Information about the success or failure of the operation.</td>
 								</tr>
 							</tbody>
@@ -1811,7 +1810,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-21">
 						<h2 class="section-heading">Retrieve Owned Tokens</h2>
-						<p><code>returnCodeAndChar getOwnedTokens</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getOwnedTokens</code></p>
 						<p>Retrieve the list of all the NFT or SFT tokens a given address possesses.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1824,15 +1823,15 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to retrieve the information from.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1843,13 +1842,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns a list of JSONs separated by carriage returns. Each JSON contains the corresponding fields returned by the MultiversX API.</td>
 								</tr>
 							</tbody>
@@ -1912,7 +1911,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-22">
 						<h2 class="section-heading">Retrieve Token Balance</h2>
-						<p><code>returnCodeAndChar getAddressTokenBalance</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getAddressTokenBalance</code></p>
 						<p>Retrieve the balance of an NFT or SFT token a given address possesses.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1925,20 +1924,20 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address to retrieve the information from.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -1949,13 +1948,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the balance as a decimal integer in string format.</td>
 								</tr>
 							</tbody>
@@ -1972,7 +1971,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-23">
 						<h2 class="section-heading">Retrieve Token Properties</h2>
-						<p><code>returnCodeAndChar getTokenProperties</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getTokenProperties</code></p>
 						<p>Retrieve the properties of an NFT or SFT token.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -1985,15 +1984,15 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT token (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2004,13 +2003,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns a JSON with the token properties returned by the MultiversX API.</td>
 								</tr>
 							</tbody>
@@ -2055,7 +2054,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-24">
 						<h2 class="section-heading">Get Owned Token Properties</h2>
-						<p><code>returnCodeAndChar getOwnedTokenProperties</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getOwnedTokenProperties</code></p>
 						<p>Retrieves the information of a token, provided that the given address owns the token (this allows to call a method of the proxy, and therefore, retrieve the information faster than from the API).</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2068,20 +2067,20 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address that owns the token.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2092,13 +2091,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns a JSON with the token properties returned by the MultiversX API.</td>
 								</tr>
 							</tbody>
@@ -2136,7 +2135,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 					
 					<section class="docs-section" id="item-3-25">
 						<h2 class="section-heading">Get Collection Properties</h2>
-						<p><code>returnCodeAndChar getCollectionProperties</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getCollectionProperties</code></p>
 						<p>Retrieves the properties of the given collection. Useful to quickly retrieve the manager of the collection.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2149,15 +2148,15 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2168,13 +2167,13 @@ Sent 10 units of "ABCD-012345-0a" successfully
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the collection name, the type of collection, the address of the manager of the collection, the number of decimals, ..., and a list of properties the collection possesses.</td>
 								</tr>
 							</tbody>
@@ -2211,7 +2210,7 @@ NumWiped-0
 					
 					<section class="docs-section" id="item-3-26">
 						<h2 class="section-heading">Build proof</h2>
-						<p><code>returnCodeAndChar buildProofOfOwnershipOfKeyPair</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar buildProofOfOwnershipOfKeyPair</code></p>
 						<p>Signs the given plaintext with the private key of the provided wallet.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2224,25 +2223,25 @@ NumWiped-0
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Name of the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_plainText</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_plainText</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Plaintext to generate signature from.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2253,13 +2252,13 @@ NumWiped-0
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the cryptographic signature of the provided plaintext.</td>
 								</tr>
 							</tbody>
@@ -2278,7 +2277,7 @@ cabfce3c7f4d52cf76d57b63f56dc19fcbe5093fae32ba5a1f9ed0928cbb5c665c6bc2c50ea682e7
 					
 					<section class="docs-section" id="item-3-27">
 						<h2 class="section-heading">Collection Ownership Proof</h2>
-						<p><code>returnCodeAndChar getProofOfCollectionOwnership</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getProofOfCollectionOwnership</code></p>
 						<p>Returns a string boolean telling whether the given collection is owned by the given wallet or not.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2291,30 +2290,30 @@ cabfce3c7f4d52cf76d57b63f56dc19fcbe5093fae32ba5a1f9ed0928cbb5c665c6bc2c50ea682e7
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Name of the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_plainText</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_plainText</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Plaintext to generate signature from.</td>
 								</tr>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2325,13 +2324,13 @@ cabfce3c7f4d52cf76d57b63f56dc19fcbe5093fae32ba5a1f9ed0928cbb5c665c6bc2c50ea682e7
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the strng "true". If not, returns the string "false".</td>
 								</tr>
 							</tbody>
@@ -2350,7 +2349,7 @@ true
 					
 					<section class="docs-section" id="item-3-28">
 						<h2 class="section-heading">Token Ownership Proof</h2>
-						<p><code>returnCodeAndChar getProofOfTokenOwnership </code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getProofOfTokenOwnership </code></p>
 						<p>Returns a string boolean telling whether the given token is owned by the given wallet or not.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2363,30 +2362,30 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_walletName</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Name of the PEM file on the hard-drive.</td>
 								</tr>
 								<tr>
-									<td><code>p_password</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Password to decrypt the PEM file.</td>
 								</tr>
 								<tr>
-									<td><code>p_plainText</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_plainText</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Plaintext to generate signature from.</td>
 								</tr>
 								<tr>
-									<td><code>p_tokenID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2397,13 +2396,13 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the strng "true". If not, returns the string "false".</td>
 								</tr>
 							</tbody>
@@ -2422,7 +2421,7 @@ true
 					
 					<section class="docs-section" id="item-3-29">
 						<h2 class="section-heading">Get Owner</h2>
-						<p><code>returnCodeAndChar getOwnerAddress</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getOwnerAddress</code></p>
 						<p>Gets the address of the current owner of an NFT or SFT collection.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2435,15 +2434,15 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2454,13 +2453,13 @@ true
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns the address of the owner of the collection.</td>
 								</tr>
 							</tbody>
@@ -2479,7 +2478,7 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 					
 					<section class="docs-section" id="item-3-30">
 						<h2 class="section-heading">Get Emitted collections</h2>
-						<p><code>returnCodeAndChar getEmittedCollections</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getEmittedCollections</code></p>
 						<p>Gets the list of collections emitted by a given address. "Owner" field actually represents the issuer, not the address that has ownership of the collection.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2492,15 +2491,15 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_address</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Public address from which to retrieve the list of the emitted tokens.</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2511,13 +2510,13 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns a list of the collection IDs of the emitted collections, separated by carriage returns.</td>
 								</tr>
 							</tbody>
@@ -2563,7 +2562,7 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 					
 					<section class="docs-section" id="item-3-31">
 						<h2 class="section-heading">Get Roles and Addresses</h2>
-						<p><code>returnCodeAndChar getRolesAndAddresses</code></p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getRolesAndAddresses</code></p>
 						<p>For each role that a given collection has, retrieves a list of addresses possessing the role.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
@@ -2576,15 +2575,15 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>p_collectionID</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
 								</tr>
 							</tbody>
 						</table>
 						<p></p>
 						<h5>Return Value:</h5>
-						<p><code>returnCodeAndChar</code> structure containing the following fields:</p>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
 								<tr>
@@ -2595,13 +2594,13 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>retCode</code></td>
-									<td><code>int</code></td>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
 									<td>0 if the operation was successful, 1 if it wasn't.</td>
 								</tr>
 								<tr>
-									<td><code>message</code></td>
-									<td><code>char *</code></td>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>If successful, returns a JSON in which the keys are a comma-separated string of MultiversX roles, and the values are arrays of public addresses which possess the roles of their keys.</td>
 								</tr>
 							</tbody>

@@ -664,13 +664,13 @@ ABCD-012345
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_emitAmount</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Number of tokens to emit.</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Number of tokens to emit in string format.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_royalties</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%)</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%) represented as a string.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_attributes</code></td>
@@ -756,8 +756,8 @@ ABCD-012345-0a
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_royalties</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%)</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Royalties that the creator will receive each time the token is transfered. Should be a numeric value between 0 an 10000 (0 meaning 0% and 10000 meaning 100%) represented as a string.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_attributes</code></td>
@@ -987,8 +987,8 @@ Added URI successfully
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_quantity</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Quantity of new tokens to add to the existing number of SFT tokens of an SFT collection.</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Quantity of new tokens to add to the existing number of SFT tokens of an SFT collection, represented as a string.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -1059,8 +1059,8 @@ Emitted 10 tokens successfully
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_quantity</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Quantity of tokens to burn from the existing number of SFT tokens of an SFT collection. If the token is an NFT, the quantity to burn is 1.</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Quantity of tokens to burn from the existing number of SFT tokens of an SFT collection, represented as a string. If the token is an NFT, the quantity to burn is 1.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -1779,8 +1779,8 @@ Sent 10 units of "ABCD-012345-0a" successfully
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_amount</code></td>
-									<td><code style="white-space: nowrap;">int</code></td>
-									<td>Quantity of EGLD to send.</td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Quantity of EGLD to send, represented as a string.</td>
 								</tr>
 							</tbody>
 						</table>

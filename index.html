@@ -121,6 +121,7 @@
 						<li>Create Non-fungible tokens belonging to a collection.</li>
 						<li>Transfer any kind of token to another address.</li>
 						<li>Query the blockchain for useful information.</li>
+						<li>Simulate every transaction before broadcasting it to the network, thus avoiding wasting EGLD on fees for unproductive actions.</li>
 					    	</ul>
 					    	<h5>Example of the outputs of some library functions:</h5>
 					    	<div class="docs-code-block">
@@ -214,6 +215,7 @@ true
 					<ul>
 					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without " ").</li>
 					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code style="white-space: nowrap;">./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_CONFIG_FILE="./config.toml"</code>.</li>
+					<li><b>__SIMULATE__</b>: Specifies if every interaction with the blockchain should be simulated first with MultiversX simulation tool. Example: <code style="white-space: nowrap;">-D__SIMULATE__=true</code>. By default, it is set to false.</li>
 					</ul>
 					<p>If you are compiling on windows with <code style="white-space: nowrap;">windows-compile.bat</code>, please set the following macros as well:</p>
 					<ul>

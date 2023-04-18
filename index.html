@@ -67,6 +67,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Linux installation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Google tests</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">How to use?</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Functions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Create Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
@@ -265,8 +266,9 @@ true
 					<ul>
 					<li>This piece of software is meant to be compiled as a dynamic library object and have its functions called from your application.</li>
 					<li>Functions that need to broadcast information to the blockchain (like collection and token issuances, or token transfers) wait until the transactions have completed. This means that the function is blocking the program for at most the timeout specified at compilation.</li>
-					<li>If Multifungible</li>
-					<li>It is possible that some tests fail. Keep in mind that these tests rely heavily on the Testnet/Devnet blockchain, and sometimes, the information retrieved from the API is not up to date.</li>
+					<li>The library can be compiled with the <i>Simulate</i> option. This option makes a call to the simulation end point of the MultiversX proxy, which checks if the transaction will be successfully executed (before we actually broadcast it).</li>
+					<li>Issuance of collections and tokens have a cost of 0.05 EGLD. This documentation specifies which functions have this cost, so that you can load the wallet with sufficient funds before calling them.</li>
+					<li>All functions of this library that change the state of the blockchain need gas to pay the transaction fees. Make sure to load your wallet with at least 0.001 EGLD to ensure that even the biggest transactions are broadcasted.</li>
 					</ul>
 					</section><!--//section-->
 						
@@ -407,7 +409,7 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 					<section class="docs-section" id="item-3-3">
 						<h2 class="section-heading">Issue SFT Collection</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar issueSFTCollection</code></p>
-						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments.</p>
+						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments. Needs 0.05 EGLD.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -526,7 +528,7 @@ ABCD-012345
 					<section class="docs-section" id="item-3-4">
 						<h2 class="section-heading">Issue NFT Collection</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar issueNFTCollection</code></p>
-						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments.</p>
+						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments. Needs 0.05 EGLD.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -645,7 +647,7 @@ ABCD-012345
 					<section class="docs-section" id="item-3-5">
 						<h2 class="section-heading">Issue SFT Token</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar issueSemiFungibleToken</code></p>
-						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments.</p>
+						<p>Issues an SFT collection on the blockchain with the attributes provided in the arguments. Needs 0.05 EGLD.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -737,7 +739,7 @@ ABCD-012345-0a
 					<section class="docs-section" id="item-3-6">
 						<h2 class="section-heading">Issue NFT Token</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar issueNonFungibleToken</code></p>
-						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments.</p>
+						<p>Issues an NFT collection on the blockchain with the attributes provided in the arguments. Needs 0.05 EGLD.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>

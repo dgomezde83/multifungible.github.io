@@ -826,7 +826,7 @@ ABCD-012345-0a
 					<section class="docs-section" id="item-3-7">
 						<h2 class="section-heading">Add role to collection</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar addCollectionRole</code></p>
-						<p>Give a role on a collection to an address.</p>
+						<p>Give a role on a collection to an address. The collection must have the property <i>canAddSpecialRoles</i>. The roles that can be given to an SFT collection are <i>ESDTRoleNFTCreate</i>, <i>ESDTRoleNFTBurn</i>, <i>ESDTTransferRole</i> and <i>ESDTRoleNFTAddQuantity</i>. The roles that can be given to an NFT collection are <i>ESDTRoleNFTCreate</i>, <i>ESDTRoleNFTBurn</i>, <i>ESDTTransferRole</i>, <i>ESDTRoleNFTUpdateAttributes</i> and <i>ESDTRoleNFTAddURI</i>. For more information, click <a href="https://docs.multiversx.com/tokens/nft-tokens#roles">here<a>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -860,7 +860,7 @@ ABCD-012345-0a
 								<tr>
 									<td><code style="white-space: nowrap;">p_role</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Role to give to the account on the collection (Ex: ESDTRoleNFTAddQuantity).</td>
+									<td>Role to give to the account on the collection.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -903,7 +903,7 @@ Added Role successfully
 					<section class="docs-section" id="item-3-8">
 						<h2 class="section-heading">Add URI</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar addURI</code></p>
-						<p>Add an URI to a token of an NFT collection.</p>
+						<p>Add an URI to a token of an NFT collection. The public address of the wallet must possess the role <i>ESDTRoleNFTAddURI</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -975,7 +975,7 @@ Added URI successfully
 					<section class="docs-section" id="item-3-9">
 						<h2 class="section-heading">Add SFT quantity</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar addSFTQuantity</code></p>
-						<p>Add a quantity of SFT tokens to an existing token.</p>
+						<p>Add a quantity of SFT tokens to an existing token. The public address of the wallet must possess the role <i>ESDTRoleNFTAddQuantity</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1047,7 +1047,7 @@ Emitted 10 tokens successfully
 					<section class="docs-section" id="item-3-10">
 						<h2 class="section-heading">Burn NFT or SFT quantity</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar burnSFTQuantity</code></p>
-						<p>Burn a quantity of SFT tokens from an existing token, or a single NFT.</p>
+						<p>Burn a quantity of SFT tokens from an existing token, or a single NFT. The public address of the wallet must possess the role <i>ESDTRoleNFTBurn</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1119,7 +1119,7 @@ Burned 10 tokens successfully
 					<section class="docs-section" id="item-3-11">
 						<h2 class="section-heading">Wipe NFT</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar wipeNFT</code></p>
-						<p>Wipe (delete from the blockchain) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
+						<p>Wipe (delete from the blockchain) an NFT owned by a blacklisted account in the Multivers X blockchain. The collection must have the property <i>canWipe</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1191,7 +1191,7 @@ Wiped NFT successfully
 					<section class="docs-section" id="item-3-12">
 						<h2 class="section-heading">Freeze NFT</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar freezeNFT</code></p>
-						<p>Freeze (block the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
+						<p>Freeze (block the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain. The collection must have the property <i>canFreeze</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1263,7 +1263,7 @@ Froze NFT successfully
 					<section class="docs-section" id="item-3-13">
 						<h2 class="section-heading">Unfreeze NFT</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar unfreezeNFT</code></p>
-						<p>Unfreeze (restore the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain.</p>
+						<p>Unfreeze (restore the ability to send the token to another address) an NFT owned by a blacklisted account in the Multivers X blockchain. The collection must have the property <i>canFreeze</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1335,7 +1335,7 @@ Unfroze NFT successfully
 					<section class="docs-section" id="item-3-14">
 						<h2 class="section-heading">Transfer NFT Creation role</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar transferCreationRole</code></p>
-						<p>Transfer the creation role (the ability to issue new tokens) of an NFT or SFT collection from an account to another. Only one account can possess this role at a given time.</p>
+						<p>Transfer the creation role (the ability to issue new tokens) of an NFT or SFT collection from an account to another. Only one account can possess this role at a given time. The collection must have the property <i>canTransferNFTCreateRole</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1474,7 +1474,7 @@ Creation stopped successfully
 					<section class="docs-section" id="item-3-16">
 						<h2 class="section-heading">Upgrade Properties</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar upgradeProperties</code></p>
-						<p>Upgrade the properties of an NFT or SFT collection.</p>
+						<p>Upgrade the properties of an NFT or SFT collection. The collection must have been issued with the property <i>canUpgrade</i>. The available properties are <i>canFreeze</i>, <i>canWipe</i>, <i>canPause</i>, <i>canTransferNFTCreateRole</i>, <i>canChangeOwner</i> and <i>canAddSpecialRoles</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1551,7 +1551,7 @@ Upgraded Property successfully
 					<section class="docs-section" id="item-3-17">
 						<h2 class="section-heading">Transfer Ownership</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar transferOwnership</code></p>
-						<p>Transfer the ownership of a collection, giving the management rights to the new address.</p>
+						<p>Transfer the ownership of a collection, giving the management rights to the new address. The collection must have the property <i>canChangeOwner</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>

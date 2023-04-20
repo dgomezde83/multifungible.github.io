@@ -972,7 +972,7 @@ Added Role successfully
 						<br>
 						<h5>Usage example:</h5>
 						<br>
-						<script src="https://gist.github.com/dgomezde83/4d07e6669528104c94f4d8ce9a810e7e.js"></script>
+						<script src="https://gist.github.com/dgomezde83/b62d1770783053b7121d9b86e6a9ae44.js"></script>
 						<br>
 						<h5>Result:</h5>
 						<br>
@@ -984,7 +984,7 @@ Added Role successfully
 					<section class="docs-section" id="item-3-8">
 						<h2 class="section-heading">Add URI</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar addURI</code></p>
-						<p>Add an URI to a token of an NFT collection. The public address of the wallet must possess the role <i>ESDTRoleNFTAddURI</i>.</p>
+						<p>Add an URI (to a suported media file) to a token of an NFT collection. The public address of the wallet must possess the role <i>ESDTRoleNFTAddURI</i>. More information <a href="https://docs.multiversx.com/tokens/nft-tokens#add-uris-to-nft">here</a>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -1013,7 +1013,7 @@ Added Role successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_uri</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>URI to add to the token (Ex: https:// ...).</td>
+									<td>URI to add to the token (Ex: ipfs://ipfsCID/myfile.png).</td>
 								</tr>
 							</tbody>
 						</table>
@@ -1056,7 +1056,7 @@ Added URI successfully
 					<section class="docs-section" id="item-3-8-1">
 						<h2 class="section-heading">Upgrade Attributes</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar upgradeAttribute</code></p>
-						<p>Upgrade the attributes of an NFT token. The collection must have the property <i>canUpgrade</i>, and the address performing the upgrade must have the <i>ESDTRoleNFTUpdateAttributes</i> role.</p>
+						<p>Upgrade the attributes (usually a link to a JSON and a set of tags) of an NFT token. The collection must have the property <i>canUpgrade</i>, and the address performing the upgrade must have the <i>ESDTRoleNFTUpdateAttributes</i> role.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>

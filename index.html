@@ -72,11 +72,13 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Create Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Issue SFT Collection</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Issue NFT Collection</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Issue NFT Collection</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-5">Issue SFT Token</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-6">Issue NFT Token</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-7">Add role to collection</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-7">Add role to collection</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-7-1">Remove role from collection</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-8">Add URI</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-8-1">Upgrade Attributes</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9">Add SFT quantity</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-10">Burn NFT or SFT quantity</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-11">Wipe NFT</a></li>
@@ -84,6 +86,8 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-13">Unfreeze NFT</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-14">Transfer NFT Creation role</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-15">Stop NFT or SFT creation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-15-1">Pause transactions</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-15-2">Resume transactions</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-16">Upgrade Properties</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-17">Transfer Ownership</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-18">Send NFT token</a></li>
@@ -479,7 +483,7 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to upgrade the roles that an account possesses on the collection by an account that possesses the right to do so.</td>
+									<td>Allow to upgrade the attributes of tokens from this collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
@@ -598,7 +602,7 @@ ABCD-012345
 									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to upgrade the roles that an account possesses on the collection by an account that possesses the right to do so.</td>
+									<td>Allow to upgrade the attributes of tokens from this collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
@@ -899,6 +903,83 @@ ABCD-012345-0a
 Added Role successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+							
+					<section class="docs-section" id="item-3-7-1">
+						<h2 class="section-heading">Remove role from collection</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar removeCollectionRole</code></p>
+						<p>Remove a role on a collection from an address. The collection must have the property <i>canAddSpecialRoles</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the PEM file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the collection (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_address</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address of the account that has the role on the collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_role</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Role to remove from the account on the collection.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/4d07e6669528104c94f4d8ce9a810e7e.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Added Role successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-8">
 						<h2 class="section-heading">Add URI</h2>
@@ -969,6 +1050,78 @@ Added Role successfully
 						<br>
 						<div class="docs-code-block">
 Added URI successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
+						
+					<section class="docs-section" id="item-3-8-1">
+						<h2 class="section-heading">Upgrade Attributes</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar upgradeAttribute</code></p>
+						<p>Upgrade the attributes of an NFT token. The collection must have the property <i>canUpgrade</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the PEM file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the NFT (Ex: ABCD-012345-01, which is a collection ID and a nonce, separated by a '-', in hexadecimal).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_attribute</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>New attribute to give to the token (in the format <i>metadata:ipfsCID/song.json;tags:song,beautiful,music</i>).</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/2134fa5a6f1a15262bce6d382b56e0c4.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">
+Upgraded attribute successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
 					
@@ -1468,6 +1621,140 @@ Role transfered successfully
 						<br>
 						<div class="docs-code-block">							
 Creation stopped successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
+						
+					<section class="docs-section" id="item-3-15-1">
+						<h2 class="section-heading">Pause transactions</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar pauseTransactions</code></p>
+						<p>Pauses the hability to send or receive tokens from the given collection. The collection must have the property <i>canPause</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the PEM file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/d2311ba148fd2355b4daa77c8e84fc29.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Paused collection transactions successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
+						
+					<section class="docs-section" id="item-3-15-2">
+						<h2 class="section-heading">Resume transactions</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar unPauseTransactions</code></p>
+						<p>Resumes the hability to send or receive tokens from the given collection. The collection must have the property <i>canPause</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absoulte or relative path to the PEM file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the PEM file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_collectionID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the NFT or SFT collection (Ex: ABCD-012345).</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/f140fed12880e237afdcff6cca567960.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Unpaused collection transactions successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
 					

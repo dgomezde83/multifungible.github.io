@@ -98,12 +98,13 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-23">Retrieve Token Properties</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-24">Get Owned Token Properties</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-25">Get Collection Properties</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-26">Build proof</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-26">Ownership Proof</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-27">Collection Issuance Proof</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-28">Token Ownership Proof</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-29">Get Issuer</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-30">Get Emitted collections</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-31">Get Roles and Addresses</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Examples of design</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
 			    </ul>
 
@@ -2542,9 +2543,9 @@ NumWiped-0
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-26">
-						<h2 class="section-heading">Build proof</h2>
+						<h2 class="section-heading">Ownership Proof</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar buildProofOfOwnershipOfKeyPair</code></p>
-						<p>Signs the given plaintext with the private key of the provided wallet.</p>
+						<p>Signs the given plaintext with the private key of the provided wallet. This allows to generate a ciphertext that can be decrypted with the public key of the given wallet. Thus, the user can prove that he is the owner of the key pair. This can be useful to prove the ownership of a token in the blockchain.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -2953,7 +2954,21 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 </code></pre>
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
-			    </article><!--//docs-article-->			    
+			    </article><!--//docs-article-->	
+				    
+			    <article class="docs-article" id="section-4">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Examples of design</h1>
+					    <section class="docs-intro">						    
+						<h5>Fixed collection, upgradable quantity</h5>
+						<p></p>
+						<h5>Upgradable collection, fixed quantity quantity</h5>
+						<p></p>
+						<h5>Fixed collection, fixed quantity quantity</h5>
+						<p></p>
+					    </section><!--//section-->
+					</header>
+			    </article><!--//docs-article-->
 			    
 			    <article class="docs-article" id="section-9">
 				    <header class="docs-header">

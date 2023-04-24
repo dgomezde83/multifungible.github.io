@@ -2958,15 +2958,143 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 				    
 			    <article class="docs-article" id="section-4">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Examples of design</h1>
-					    <section class="docs-intro">						    
-						<h5>Fixed collection, upgradable quantity</h5>
-						<p></p>
-						<h5>Upgradable collection, fixed quantity quantity</h5>
-						<p></p>
-						<h5>Fixed collection, fixed quantity quantity</h5>
-						<p></p>
-					    </section><!--//section-->
+					    <h1 class="docs-heading">Properties and Roles of collections</h1>
+					    <section class="docs-intro">
+						<h5>Basic concepts definitions</h5>
+						<p>There are some terms that you need to be familiar with in order to use this library to the fullest. These are given in the following table:</p>
+						    <table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">Collection</code></td>
+									<td>A collection is an element in the blockchain that allows for the creation of non-fungible tokens and semi-fungible tokens. Collections have properties, as well as roles that select addresses possess. A collection has a <i>manager</i> that is unique. A collection can only issue either non-fungible tokens or semi-fungible tokens, but not both.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Token</code></td>
+									<td>A token is an element in the blockchain that allows for the existence of ownership. Tokens are issued from a collection by an address that has the right to do so on that collection. Tokens have attributes that give them a meaning to the owner. Tokens accept a certain number of operations on them like transfers to other addresses, or the modification of their attributes. The operations that can be performed on them are determined by their collection properties.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">NFT</code></td>
+									<td>An NFT is a non-fungible token. It is a unique token in the blockchain, that only one address owns, and that cannot be copied. The blockchain ensures the uniqueness of the token by giving it a unique ID of the form <i>ABCD-012345-01</i>, where <i>ABCD-012345</i> is the ID of the collection to which the token belongs.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">SFT</code></td>
+									<td>An SFT is a semi-fungible token. It is a token in the blockchain, that only one address owns. However, there can be multiple instances of this same token. A semi-fungible token has an ID of the form <i>ABCD-012345-01</i>, where <i>ABCD-012345</i> is the ID of the collection to which the token belongs. Multiple addresses can own many instances of this token. An address that possesses the necessary roles on the collection a token belongs to can add or burn units of that token.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Token</code></td>
+									<td>A token is an element in the blockchain that allows for the existence of ownership. Tokens are issued from a collection by an address that has the right to do so on that collection. Tokens have attributes that give them a meaning to the owner. Tokens accept a certain number of operations on them like transfers to other addresses, or the modification of their attributes. The operations that can be performed on them are determined by their collection properties.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Manager of a collection</code></td>
+									<td>The manager of a collection is the address that possesses management rights. When a collection is issued, the manager is set to the issuer of the collection. This privilege can be transferred to another address by the manager itself. Only one address can be the manager of a collection at a given time.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Owner of a token</code></td>
+									<td>The owner of a token is the address that the blockchain recognizes as "owning" the token. To acquire the token, the owner must have received it from another address. Only select addresses or contracts possessing the <i>ESDTNFTCreate</i> role can issue tokens from a collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Property</code></td>
+									<td>A property of a collection is a part of the definition of a collection which manages what can be done and what can't be done on the collection. Properties can be set upon the issuance of a collection, and can be changed later if the <i>canUpgrade</i> is set on issuance.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Role</code></td>
+									<td>A role is a special ability that an address may possess on a collection. These abilities allow for the address to perform certain actions like issue new tokens, modify token attributes or burn tokens.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">Attribute</code></td>
+									<td>An attribute is the part of a token that gives it a special meaning. There are two types of attribute: an URI to an IPFS media file (of supported type), and an URI to an IPFS JSON file (containing data that the creator of the token considered relevant to give it meaning).</td>
+								</tr>
+							</tbody>
+						</table>
+						    
+						<h5>Properties table</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">canFreeze</code></td>
+									<td>Allow the collection to be freezed by an account that possesses the right to do so.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canWipe</code></td>
+									<td>Allow a token from the collection to be wiped by an account that possesses the right to do so.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canPause</code></td>
+									<td>Allow the manager of a collection to halt or resume the ability to transact with tokens of the collection</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canTransferNFTCreateRole</code></td>
+									<td>Allow the account that has the ability to issue tokens on this collection to transfer this ability to another account. Only one account can have this ability at a given time, for the collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canChangeOwner</code></td>
+									<td>Allow to change the owner of the collection by an account that possesses the right to do so.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canUpgrade</code></td>
+									<td>Allow to upgrade the properties of the collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">canAddSpecialRoles</code></td>
+									<td>Allow to add roles to the collection by an account that possesses the right to do so.</td>
+								</tr>
+							</tbody>
+						</table>
+						    
+						<h5>Roles table</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type of collection</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTRoleNFTCreate</code></td>
+									<td>NFT and SFT</td>
+									<td>Allow to issue new tokens.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTRoleNFTBurn</code></td>
+									<td>NFT and SFT</td>
+									<td>Allow to erase existing tokens.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTRoleNFTUpdateAttributes</code></td>
+									<td>NFT</td>
+									<td>Allow to update the attributes of a token.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTRoleNFTAddURI</code></td>
+									<td>NFT</td>
+									<td>Allow to add an URI to a token.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTRoleNFTAddQuantity</code></td>
+									<td>SFT</td>
+									<td>Allow to add a quantity of tokens of an existing type of token from a collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">ESDTTransferRole</code></td>
+									<td>NFT and SFT</td>
+									<td>Allow to restrict which addresses can transfer tokens from the collection.</td>
+								</tr>
+							</tbody>
+						</table>
 					</header>
 			    </article><!--//docs-article-->
 			    

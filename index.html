@@ -273,7 +273,7 @@ true
 					Here are some important guidelines on how to use Multifungible:
 					<ul>
 					<li>The main purpose of this library is to facilitate the management of collections and tokens on the MultiversX blockchain.</li>
-					<li>If you're not familiar with all the features that are available in the MultiversX blockchain, it is recommended that you read this library's documentation as well as the definitions of the concepts used by its functions. You can find it <a href="#section-4"> here</a>. You should also read Multivers X's official documentation on <a href="https://docs.multiversx.com/tokens/esdt-tokens/">ESDT tokens</a> and <a href="https://docs.multiversx.com/tokens/nft-tokens">NFTs</a>.</li>
+					<li>If you're not familiar with all the features that are available in the MultiversX blockchain, it is recommended that you read this library's documentation as well as the definitions of the concepts used by its functions. You can find them <a href="#section-4"> here</a>. You can also read Multivers X's official documentation on <a href="https://docs.multiversx.com/tokens/esdt-tokens/">ESDT tokens</a> and <a href="https://docs.multiversx.com/tokens/nft-tokens">NFTs</a> to acquire a complete understanding of their functionning.</li>
 					<li>This piece of software is meant to be compiled as a dynamic library object and have its functions called from your application.</li>
 					<li>Functions that need to broadcast information to the blockchain (like collection and token issuances, or token transfers) wait until the transactions have completed. This means that the function is blocking the program for at most the timeout specified at compilation.</li>
 					<li>The library can be compiled with the <i>Simulate</i> option. This option makes a call to the simulation end point of the MultiversX proxy, which checks if the transaction will be successfully executed (before we actually broadcast it).</li>
@@ -459,43 +459,43 @@ erd1ahxq4s4dtsp92tdxy2g5mutzlzrnz59seavmrt27kqpujl6v37psnwuat2
 									<td><code style="white-space: nowrap;">p_canFreeze</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow the collection to be freezed by an account that possesses the right to do so.</td>
+									<td>Allow the manager of the collection to prevent transfers to and from a specific account.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canWipe</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow a token from the collection to be wiped by an account that possesses the right to do so.</td>
+									<td>Allow the manager of the collection to wipe the tokens that a frozen account possesses.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canPause</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to pause the issuance of tokens of the collection by an account that possesses the right to do so.</td>
+									<td>Allow the manager of the collection to halt or resume the ability to transact with tokens of the collection (appart from minting and burning)</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canTransferNFTCreateRole</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow the account that has the ability to issue tokens on this collection to transfer this ability to another account. Only one account can have this ability at a given time, for the collection.</td>
+									<td>Allow the token issuer of the collection to transfer this ability to another account.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canChangeOwner</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to change the owner of the collection by an account that possesses the right to do so.</td>
+									<td>Allow to change the manager of the collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to upgrade the attributes of tokens from this collection.</td>
+									<td>Allow the manager to upgrade the properties of the collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to add roles to the collection by an account that possesses the right to do so.</td>
+									<td>Allow the manager to add roles on the collection to a chosen address.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -578,43 +578,43 @@ ABCD-012345
 									<td><code style="white-space: nowrap;">p_canFreeze</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow the collection to be freezed by an account that possesses the right to do so.</td>
+									<td>Allow the manager of the collection to prevent transfers to and from a specific account.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canWipe</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow a token from the collection to be wiped by an account that possesses the right to do so.</td>
+									<td>AAllow the manager of the collection to wipe the tokens that a frozen account possesses.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canPause</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to pause the issuance of tokens of the collection by an account that possesses the right to do so.</td>
+									<td>Allow the manager of the collection to halt or resume the ability to transact with tokens of the collection (appart from minting and burning).</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canTransferNFTCreateRole</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow the account that has the ability to issue tokens on this collection to transfer this ability to another account. Only one account can have this ability at a given time, for the collection.</td>
+									<td>Allow the token issuer of the collection to transfer this ability to another account.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canChangeOwner</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to change the owner of the collection by an account that possesses the right to do so.</td>
+									<td>Allow to change the manager of the collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to upgrade the attributes of tokens from this collection.</td>
+									<td>Allow the manager to upgrade the properties of the collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
 									<td><code style="white-space: nowrap;">bool</code></td>
 									<td><code style="white-space: nowrap;">false</code></td>
-									<td>Allow to add roles to the collection by an account that possesses the right to do so.</td>
+									<td>Allow the manager to add roles on the collection to a chosen address.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -3041,15 +3041,15 @@ erd1catxddevywldkrwujn4aj6e4d9ruhrrwtw8yfe3pdk9p9awmlnzqpsc5lp
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">canPause</code></td>
-									<td>Allow the manager of a collection to halt or resume the ability to transact with tokens of the collection (appart from minting and burning)</td>
+									<td>Allow the manager of a collection to halt or resume the ability to transact with tokens of the collection (appart from minting and burning).</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">canTransferNFTCreateRole</code></td>
-									<td>Allow the token issuer of the collection to transfer this ability to another account.</td>
+									<td>Allow the token issuer of a collection to transfer this ability to another account.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">canChangeOwner</code></td>
-									<td>Allow to change the manager of the collection.</td>
+									<td>Allow to change the manager of a collection.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">canUpgrade</code></td>

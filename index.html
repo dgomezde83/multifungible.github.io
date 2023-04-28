@@ -68,6 +68,10 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Google tests</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">How to use?</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Properties and Roles of collections</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Basic concepts definitions</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Properties table</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Roles table</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Functions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Create Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
@@ -104,10 +108,6 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-29">Get Issuer</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-30">Get Emitted collections</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-31">Get Roles and Addresses</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Properties and Roles of collections</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Basic concepts definitions</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Properties table</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Roles table</a></li>
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
 			    </ul>
 
@@ -276,7 +276,7 @@ true
 					<li>If you're not familiar with all the features that are available in the MultiversX blockchain, it is recommended that you read this library's documentation as well as the definitions of the concepts used by its functions. You can find them <a href="#section-4"> here</a>. You can also read Multivers X's official documentation on <a href="https://docs.multiversx.com/tokens/esdt-tokens/">ESDT tokens</a> and <a href="https://docs.multiversx.com/tokens/nft-tokens">NFTs</a> to acquire a complete understanding of their functionning.</li>
 					<li>This piece of software is meant to be compiled as a dynamic library object and have its functions called from your application.</li>
 					<li>Functions that need to broadcast information to the blockchain (like collection and token issuances, or token transfers) wait until the transactions have completed. This means that the function is blocking the program for at most the timeout specified at compilation.</li>
-					<li>The library can be compiled with the <i>Simulate</i> option. This option makes a call to the simulation end point of the MultiversX proxy, which checks if the transaction will be successfully executed (before we actually broadcast it).</li>
+					<li>The library can be compiled with the <a href="item-2-3"><i>Simulate</i><a> option. This option makes a call to the simulation end point of the MultiversX proxy, which checks if the transaction will be successfully executed (before we actually broadcast it).</li>
 					<li>Issuance of collections and tokens have a cost of 0.05 EGLD. This documentation specifies which functions have this cost, so that you can load the wallet with sufficient funds before calling them.</li>
 					<li>All functions of this library that change the state of the blockchain need gas to pay the transaction fees. Make sure to load your wallet with at least 0.001 EGLD to ensure that even the biggest transactions are broadcasted.</li>
 					</ul>

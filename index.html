@@ -43,7 +43,7 @@
 					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
 						<li class="list-inline-item"><a href="https://github.com/dgomezde83/Multifungible-library"><i class="fab fa-github fa-fw"></i></a></li>
 		            </ul><!--//social-list-->
-		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+		            <a href="https://github.com/dgomezde83/Multifungible-library/releases/latest" class="btn btn-primary d-none d-lg-flex">Download</a>
 	            </div><!--//docs-top-utilities-->
             </div><!--//container-->
         </div><!--//branding-->
@@ -68,8 +68,8 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Google tests</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">How to use?</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Properties and Roles of collections</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Basic concepts definitions</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-book-open-reader"></i></span>Multivers X concepts</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Basic definitions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Properties table</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Roles table</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Functions</a></li>
@@ -258,10 +258,11 @@ true
 					<section class="docs-section" id="item-2-4">
 					<h2 class="section-heading">Run tests</h2>
 					<p>
-					In order to run the 90-test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
+					In order to run the 109-test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
 					<ul>
 					<li>Create a set of test wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
 					<li>Fill up the required wallet's public address with the demanded quantity of <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
+					<li>If you need extra addresses to fill up the main wallet with 10 EGLD, run <code style="white-space: nowrap;">.\Multifungible.exe -l</code> to create 5 wallets. Their addresses will be displayed on the console. Load them up with 1 EGLD, then run <code style="white-space: nowrap;">.\Multifungible.exe -t</code> to send the 1 EGLD to the main wallet. Repeat this two times to get to 10 EGLD.</li>
 					<li>Run the program <code style="white-space: nowrap;">.\Multifungible.exe</code>. This will run all the tests one by one</li>
 					<li>It is possible that some tests fail. Keep in mind that these tests rely heavily on the Testnet/Devnet blockchain, and sometimes, the information retrieved from the API is not up to date.</li>
 					</ul>
@@ -286,9 +287,9 @@ true
 			    
 	    <article class="docs-article" id="section-4">
 				    <header class="docs-header">
-					    <h1 class="docs-heading" id="item-4-1">Properties and Roles of collections</h1>
+					    <h1 class="docs-heading" id="item-4-1">Multivers X concepts</h1>
 					    <section class="docs-intro">
-						<h2 class="section-heading">Basic concepts definitions</h2>
+						<h2 class="section-heading">Basic definitions</h2>
 						<p>There are some terms that you need to be familiar with in order to use this library to the fullest. These are given in the following table:</p>
 						    <table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -404,12 +405,12 @@ true
 								<tr>
 									<td><code style="white-space: nowrap;">ESDTRoleNFTUpdateAttributes</code></td>
 									<td>NFT</td>
-									<td>Allow to update the attributes of a token.</td>
+									<td>Allow to update the attributes of a token owned by the address posessing this role.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">ESDTRoleNFTAddURI</code></td>
 									<td>NFT</td>
-									<td>Allow to add an URI to a token.</td>
+									<td>Allow to add an URI to a token owned by the address posessing this role.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">ESDTRoleNFTAddQuantity</code></td>
@@ -1054,7 +1055,7 @@ Added Role successfully
 					<section class="docs-section" id="item-3-7-1">
 						<h2 class="section-heading">Remove role from collection</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar removeCollectionRole</code></p>
-						<p>Remove a role on a collection from an address. The collection must have the property <i>canAddSpecialRoles</i>.</p>
+						<p>Remove a role on a collection from an address. The roles that can be given to an SFT collection are <i>ESDTRoleNFTBurn</i>, <i>ESDTTransferRole</i> and <i>ESDTRoleNFTAddQuantity</i>. The roles that can be given to an NFT collection are <i>ESDTRoleNFTBurn</i>, <i>ESDTTransferRole</i>, <i>ESDTRoleNFTUpdateAttributes</i> and <i>ESDTRoleNFTAddURI</i>. The role <i>ESDTRoleNFTCreate</i> can only be removed by calling <a href="#item-3-15">stopTokenCreation</a>. The collection must have the property <i>canAddSpecialRoles</i>.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>

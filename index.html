@@ -243,7 +243,7 @@ true
 					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
 					<li><b>BUILD_TESTS</b>: This macro turns the Google test compilation ON. It is set to OFF by default. To use it, <code style="white-space: nowrap;">-DBUILD_TESTS=ON</code>.</li>
-					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Testnet</i> or <i>Devnet</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Testnet</code> or <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Devnet</code>.</li>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Local</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Local</code>.</li>
 					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">../config folder/config.toml</code>.</li>
 					</ul>
 					<p>If you are compiling on windows, please set the following macros as well:</p>
@@ -260,11 +260,11 @@ true
 					<p>
 					In order to run the 109-test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
 					<ul>
-					<li>Create a set of test wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
-					<li>Fill up the required wallet's public address with the demanded quantity of <a href="https://r3d4.fr/faucet">faucet</a> EGLD from the Testnet or Devnet, depending on the option with which you compiled the product.</li>
-					<li>If you need extra addresses to fill up the main wallet with 10 EGLD, run <code style="white-space: nowrap;">.\Multifungible.exe -l</code> to create 5 wallets. Their addresses will be displayed on the console. Load them up with 1 EGLD, then run <code style="white-space: nowrap;">.\Multifungible.exe -t</code> to send the 1 EGLD to the main wallet. Repeat this two times to get to 10 EGLD.</li>
+					<li>Create a set of test wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. This will create a <i>main wallet</i> and display its address on the console. The program will block until you click <i>ENTER</i> after you complete the next step.</li>
+					<li>Open a new console and launch the xNetwork local testnet with <code style="white-space: nowrap;">sudo xnetwork</code>. When asked to configure the address that will receive 1.000.000 EGLD, enter the address shown on the Multifungible console. Once the local testnet is up and running, click <i>ENTER</i> on the Multifungible console. This will make a few transactions to load additional wallets with enough EGLD.</li>
+					<li>To see the public addresses of your wallets, run <code style="white-space: nowrap;">.\Multifungible.exe -s</code>.</li>
 					<li>Run the program <code style="white-space: nowrap;">.\Multifungible.exe</code>. This will run all the tests one by one</li>
-					<li>It is possible that some tests fail. Keep in mind that these tests rely heavily on the Testnet/Devnet blockchain, and sometimes, the information retrieved from the API is not up to date.</li>
+					<li>It is possible that some tests fail. Keep in mind that these tests rely heavily on the local blockchain API, and sometimes, the information retrieved from the API is not up to date.</li>
 					</ul>
 					</section><!--//section-->
 					

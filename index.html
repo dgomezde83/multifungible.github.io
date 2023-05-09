@@ -273,7 +273,7 @@ true
 					<p>
 					Here are some important guidelines on how to use Multifungible:
 					<ul>
-					<li>The main purpose of this library is to facilitate the management of collections and tokens on the MultiversX blockchain.</li>
+					<li>The main purpose of this library is to facilitate the management of collections and tokens on the MultiversX blockchain by the use of simple JSON wallets (one private-public key pair).</li>
 					<li>If you're not familiar with all the features that are available in the MultiversX blockchain, it is recommended that you read this library's documentation as well as the definitions of the concepts used by its functions. You can find them <a href="#section-4"> here</a>. You can also read Multivers X's official documentation on <a href="https://docs.multiversx.com/tokens/esdt-tokens/">ESDT tokens</a> and <a href="https://docs.multiversx.com/tokens/nft-tokens">NFTs</a> to acquire a complete understanding of their functionning.</li>
 					<li>This piece of software is meant to be compiled as a dynamic library object and have its functions called from your application.</li>
 					<li>Functions that need to broadcast information to the blockchain (like collection and token issuances, or token transfers) wait until the transactions have completed. This means that the function is blocking the program for at most the timeout specified at compilation.</li>
@@ -437,7 +437,7 @@ true
 				     <section class="docs-section" id="item-3-1">
 						<h2 class="section-heading">Create Wallet</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar createWallet</code></p>
-						<p>Creates a PEM wallet file of the specified name on the hard drive, and encrypts it with the specified password. If the provided name contains folders, the folders must exists beforehand, otherwise the wallet will not be saved.</p>
+						<p>Creates a JSON wallet file of the specified name on the hard drive, and encrypts it with the specified password. This kind of wallet is made of one and only private-public key pair. If the provided name contains folders, the folders must exists beforehand, otherwise the wallet will not be saved.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>
@@ -499,7 +499,7 @@ erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0
 					<section class="docs-section" id="item-3-2">
 						<h2 class="section-heading">Load Wallet</h2>
 						<p><code style="white-space: nowrap;">returnCodeAndChar loadWallet</code></p>
-						<p>Loads a PEM wallet file of the specified name on the hard drive, and decrypts it with the specified password.</p>
+						<p>Loads a JSON wallet file of the specified name on the hard drive, and decrypts it with the specified password.</p>
 						<h5>Arguments:</h5>
 						<table class="table-striped" style="margin-left: 25px;">
 							<thead>

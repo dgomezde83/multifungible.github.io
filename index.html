@@ -210,8 +210,8 @@ true
 						<h2 class="section-heading">Linux installation</h2>
 						<p>
 						<ul>
-						<li>If you wish to compile the library on Linux yourself, download the latest sources from the GitHub page by clicking the <i>Download</i> button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
-						<li>To install OpenSSL 3 headers and library, and the libsodium headers, run the install.sh script.</li>
+						<li>If you wish to compile the library on Linux yourself, download the latest sources from the <a href="https://github.com/dgomezde83/Multifungible-library">GitHub</a> page by clicking the <i>Download</i> button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
+						<li>You will need to install OpenSSL 3 and libsodium. If your Linux distro supports the Advanced Packaging Tool (APT), run the install.sh script. If not, you will need to manually install the packages corresponding to the OpenSSL static libraries, the OpenSSL include files, the libsodium static libraries and the libsodium include files. In most distros, the libraries go by the names of <i>openssl</i> and <i>libsodium</i>, and the include files go by the names of <i>openssl-dev</i> and <i>libsodium-dev</i>.</li>
 						<li>To install the libsodium library, go to <a href="https://download.libsodium.org/libsodium/releases/">this page</a>, and download the latest stable release. Then, run the commands <code>./configure</code>, <code>make && make check</code> and <code>sudo make install</code></li>
 						<li>If you wish to run the Google tests suite, install googletests on your system. You can run the installgtest.sh file and it will install it for you. You can also install it manually by typing <code style="white-space: nowrap;">sudo apt-get install libgtest-dev</code>, then <code style="white-space: nowrap;">cd /usr/src/gtest</code> and <code style="white-space: nowrap;">sudo cmake CMakeLists.txt</code> followed by <code style="white-space: nowrap;">sudo make</code>.</li>
 						</ul>
@@ -3087,6 +3087,8 @@ erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0
 					    <section class="docs-intro">						    
 						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Under which license is this library?</h5>
 						<p>This work is under the <a rel="license" href="https://opensource.org/license/mit/">MIT license</a>.</p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>I can't compile on Linux.</h5>
+						<p>If you're having problems compiling in Linux, make sure you have installed all the necessary libraries on your distribution. If the problem persists, make sure you are using a relatively recent version of the distro.</p>
 						</section><!--//section-->
 					</header>
 			    </article><!--//docs-article-->

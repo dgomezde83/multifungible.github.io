@@ -1,2 +1,2 @@
 # multifungible.github.io
-Multifungible - Portable library for the management of Non fungible tokens and semi fungible tokens in the MultiversX blockchain
+Multifungible - This repository only contains the webpage with the documentation. To download the library, visit https://github.com/dgomezde83/Multifungible-library

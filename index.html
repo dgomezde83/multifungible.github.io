@@ -65,9 +65,10 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-0">Up and running</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Windows installation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Linux installation</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Compilation</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Google tests</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">How to use?</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">MacOS installation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Compilation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Google tests</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-6">How to use?</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-book-open-reader"></i></span>Multivers X concepts</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Basic definitions</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Properties table</a></li>
@@ -77,6 +78,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Load Wallet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Issue SFT Collection</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Issue NFT Collection</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4-5">Issue ESDT Token</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-5">Issue SFT Token</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-6">Issue NFT Token</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-7">Add role to collection</a></li>
@@ -84,7 +86,8 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-8">Add URI</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-8-1">Upgrade Attributes</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9">Add SFT quantity</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-10">Burn NFT or SFT quantity</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9-5">Mint ESDT quantity</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-10">Burn NFT or SFT quantity</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-11">Wipe NFT</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-12">Freeze NFT</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-13">Unfreeze NFT</a></li>
@@ -210,19 +213,30 @@ true
 						<h2 class="section-heading">Linux installation</h2>
 						<p>
 						<ul>
-						<li>If you wish to compile the library on Linux yourself, download the latest sources from the <a href="https://github.com/dgomezde83/Multifungible-library">GitHub</a> page by clicking the <i>Download</i> button on the upper right corner. Additinally, you will need the latest version of OpenSSL 3 and libsodium.</li>
+						<li>If you wish to compile the library on Linux yourself, download the latest sources from the <a href="https://github.com/dgomezde83/Multifungible-library">GitHub</a> page by clicking the <i>Download</i> button on the upper right corner. Additionally, you will need the latest version of OpenSSL 3 and libsodium.</li>
 						<li>You will need to install OpenSSL 3 and libsodium. If your Linux distro supports the Advanced Packaging Tool (APT), run the install.sh script. If not, you will need to manually install the packages corresponding to the OpenSSL static libraries, the OpenSSL include files, the libsodium static libraries and the libsodium include files. In most distros, the libraries go by the names of <i>openssl</i> and <i>libsodium</i>, and the include files go by the names of <i>openssl-dev</i> and <i>libsodium-dev</i>.</li>
 						<li>To install the libsodium library, go to <a href="https://download.libsodium.org/libsodium/releases/">this page</a>, and download the latest stable release. Then, run the commands <code>./configure</code>, <code>make && make check</code> and <code>sudo make install</code></li>
 						<li>If you wish to run the Google tests suite, install googletests on your system. You can run the installgtest.sh file and it will install it for you (if your distro uses APT, if not, you'll need to do it manually). You can also install it manually by typing <code style="white-space: nowrap;">sudo apt-get install libgtest-dev</code>, then <code style="white-space: nowrap;">cd /usr/src/gtest</code> and <code style="white-space: nowrap;">sudo cmake CMakeLists.txt</code> followed by <code style="white-space: nowrap;">sudo make</code>.</li>
 						</ul>
 						</p>
-					</section><!--//section-->
+					</section>
+
+				    	<section class="docs-section" id="item-2-3">
+						<h2 class="section-heading">MacOS installation</h2>
+						<p>
+						<ul>
+						<li>If you wish to compile the library on MacOS yourself, download the latest sources from the <a href="https://github.com/dgomezde83/Multifungible-library">GitHub</a> page by clicking the <i>Download</i> button on the upper right corner. Additionally, you will need the latest version of OpenSSL 3 and libsodium.</li>
+						<li>You will need to install OpenSSL 3 and libsodium. Install brew, and run the install_macos.sh script. This will install libsodium and openssl.</li>
+						<li>If you wish to run the Google tests suite, install googletests on your system: <code style="white-space: nowrap;">brew install googletest</code>.</li>
+						</ul>
+						</p>
+					</section>
 	
-					<section class="docs-section" id="item-2-3">
+					<section class="docs-section" id="item-2-4">
 					<h2 class="section-heading">Compilation</h2>
 					<h4>Library</h4>
 					<p>
-					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile.sh</code>). Please, modify it and set the value of the following macros:
+					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile.bat</code>), linux (<code style="white-space: nowrap;">linux-compile.sh</code>) and MacOS (<code style="white-space: nowrap;">macos-compile.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
 					<li><b>MULTIFUNGIBLE_NETWORK</b>: Select the network in which the library will run (Local, Testnet, Devnet, Mainnet). Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Mainnet</code> (without " ").</li>
 					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Select the location of the config file that the library will use during execution. You can set it to <code style="white-space: nowrap;">./config.toml</code> if you are going to place it next to the executable that will load the Multifungible library. Example: <code style="white-space: nowrap;">-DMULTIFUNGIBLE_CONFIG_FILE="./config.toml"</code>.</li>
@@ -242,7 +256,7 @@ true
 	    
 					<h4>Google tests</h4>
 					<p>
-					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>) and linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
+					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-gtests.bat</code>), linux (<code style="white-space: nowrap;">linux-compile-gtests.sh</code>) and MacOS (<code style="white-space: nowrap;">macos-compile-gtests.sh</code>). Please, modify it and set the value of the following macros:
 					<ul>
 					<li><b>BUILD_TESTS</b>: This macro turns the Google test compilation ON. It is set to OFF by default. To use it, <code style="white-space: nowrap;">-DBUILD_TESTS=ON</code>.</li>
 					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Local</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Local</code>.</li>
@@ -255,12 +269,28 @@ true
 					</ul>
 					<p>
 					The script will compile an executable into the <code style="white-space: nowrap;">./bin</code> folder. This is the file that you need to execute in order to run the tests on the Testnet.
-					</section><!--//section-->
+					</section>
+
+				    	<h4>Command Line Interface</h4>
+					<p>
+					A compilation script is provided for windows (<code style="white-space: nowrap;">windows-compile-cli.bat</code>), linux (<code style="white-space: nowrap;">linux-compile-cli.sh</code>) and MacOS (<code style="white-space: nowrap;">macos-compile-cli.sh</code>). Please, modify it and set the value of the following macros:
+					<ul>
+					<li><b>MULTIFUNGIBLE_NETWORK</b>: Set the network to <i>Local</i> with the parameter <code style="white-space: nowrap;">-DMULTIFUNGIBLE_NETWORK=Local</code>.</li>
+					<li><b>MULTIFUNGIBLE_CONFIG_FILE</b>: Set the location of the config file to <code style="white-space: nowrap;">../config folder/config.toml</code>.</li>
+					</ul>
+					<p>If you are compiling on windows, please set the following macros as well:</p>
+					<ul>
+					<li><b>GOOGLETESTS_INCLUDE_PATH</b>: Select the location of the Google test headers folder. Example: <code style="white-space: nowrap;">-DGOOGLETESTS_INCLUDE_PATH="C:/GoogleTests/include"</code>.</li>
+					<li><b>GOOGLETESTS_LIB_PATH</b>: Select the location of the Google test lib folder. Example: <code style="white-space: nowrap;">-DGOOGLETESTS_LIB_PATH="C:/GoogleTests/lib"</code>.</li>
+					</ul>
+					<p>
+					The script will compile an executable into the <code style="white-space: nowrap;">./bin</code> folder.
+					</section>
 					
-					<section class="docs-section" id="item-2-4">
+					<section class="docs-section" id="item-2-5">
 					<h2 class="section-heading">Run tests</h2>
 					<p>
-					In order to run the 109-test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
+					In order to run the test suite, you will need to navigate to the <code style="white-space: nowrap;">./bin</code> folder and perform the following actions:
 					<ul>
 					<li>Create a set of test wallets in the <code style="white-space: nowrap;">'./test'</code> folder. To create them, run the executable with the option <code style="white-space: nowrap;">-c</code>, like this: <code style="white-space: nowrap;">.\Multifungible.exe -c</code>. This will create a <i>main wallet</i> and display its address on the console. The program will block until you click <i>ENTER</i> after you complete the next step.</li>
 					<li>Open a new console and launch the <a href="https://github.com/gfusee/xnetwork">xNetwork</a> local testnet with <code style="white-space: nowrap;">sudo xnetwork</code>. When asked to configure the address that will receive 1.000.000 EGLD, enter the address shown on the Multifungible console. Once the local testnet is up and running, click <i>ENTER</i> on the Multifungible console. This will make a few transactions to load additional wallets with enough EGLD.</li>
@@ -270,7 +300,7 @@ true
 					</ul>
 					</section><!--//section-->
 					
-					<section class="docs-section" id="item-2-5">
+					<section class="docs-section" id="item-2-6">
 					<h2 class="section-heading">How to use?</h2>
 					<p>
 					Here are some important guidelines on how to use Multifungible:
@@ -453,7 +483,7 @@ true
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -515,7 +545,7 @@ erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -577,7 +607,7 @@ erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -684,7 +714,7 @@ ABCD-012345
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -791,7 +821,7 @@ ABCD-012345
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -865,6 +895,118 @@ ABCD-012345
 ABCD-012345-0a
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+				    	<section class="docs-section" id="item-3-5-5">
+						<h2 class="section-heading">Issue ESDT Token</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar issueESDTToken</code></p>
+						<p>Issues an ESDT on the blockchain with the attributes provided in the arguments. Needs 0.05 EGLD.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_esdtName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Name to give to the ESDT token.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_esdtTicker</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Ticker to give to the collection. Must be alphanumeric, between 3 and 10 characters.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_initialSupply</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Initial supply to mint and give to the issuer.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_nbDecimals</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Number of decimals into which you will allow to subdivide the token (between 0 and 18).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canFreeze</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow the manager of the collection to prevent transfers to and from a specific account.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canWipe</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow the manager of the collection to wipe the tokens that a frozen account possesses.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canPause</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow the manager of the collection to halt or resume the ability to transact with tokens of the collection (appart from minting and burning)</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canChangeOwner</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow to change the manager of the collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canUpgrade</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow the manager to upgrade the properties of the collection.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_canAddSpecialRoles</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Allow the manager to add roles on the collection to a chosen address.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Token ID if the operation was successful. Error information if it wasn't.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/3ebd485215d4cb4910118cf1427ed9a4.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+ABCD-012345-0a
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-6">
 						<h2 class="section-heading">Issue NFT Token</h2>
@@ -883,7 +1025,7 @@ ABCD-012345-0a
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -970,7 +1112,7 @@ ABCD-012345-0a
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1047,7 +1189,7 @@ Added Role successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1124,7 +1266,7 @@ Added Role successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1196,7 +1338,7 @@ Added URI successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1268,7 +1410,7 @@ Upgraded attribute successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1284,6 +1426,78 @@ Upgraded attribute successfully
 									<td><code style="white-space: nowrap;">p_quantity</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
 									<td>Quantity of new tokens to add to the existing number of SFT tokens of an SFT collection, represented as a string.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/1f82225e671f42e51e40f1a756192d60.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Emitted 10 tokens successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-3-9-5">
+						<h2 class="section-heading">Mint ESDT quantity</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar mintESDTQuantity</code></p>
+						<p>Mint a quantity of ESDT tokens. The public address of the wallet must possess the role <i>ESDTRoleLocalMint</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_quantity</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Quantity of new tokens to add to the existing number of ESDT tokens, represented as a string.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -1340,7 +1554,7 @@ Emitted 10 tokens successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1412,7 +1626,7 @@ Burned 10 tokens successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1484,7 +1698,7 @@ Wiped NFT successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1556,7 +1770,7 @@ Froze NFT successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1628,7 +1842,7 @@ Unfroze NFT successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1700,7 +1914,7 @@ Role transfered successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1767,7 +1981,7 @@ Creation stopped successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1834,7 +2048,7 @@ Paused collection transactions successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1901,7 +2115,7 @@ Unpaused collection transactions successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -1978,7 +2192,7 @@ Upgraded Property successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -2050,7 +2264,7 @@ Transfered ownership successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -2122,7 +2336,7 @@ Sent "ABCD-012345-0a" successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>
@@ -2199,7 +2413,7 @@ Sent 10 units of "ABCD-012345-0a" successfully
 								<tr>
 									<td><code style="white-space: nowrap;">p_walletName</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>Absoulte or relative path to the JSON file on the hard-drive.</td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
 								</tr>
 								<tr>
 									<td><code style="white-space: nowrap;">p_password</code></td>

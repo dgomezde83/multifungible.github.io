@@ -88,9 +88,13 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9">Add SFT quantity</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9-5">Mint ESDT quantity</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-10">Burn NFT or SFT quantity</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-10-5">Burn ESDT quantity</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-11">Wipe NFT</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-11-5">Wipe ESDT</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-12">Freeze NFT</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-13">Unfreeze NFT</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-12-5">Freeze ESDT</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-13">Unfreeze NFT</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-13-5">Unfreeze ESDT</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-14">Transfer NFT Creation role</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-15">Stop NFT or SFT creation</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-15-1">Pause transactions</a></li>
@@ -99,14 +103,18 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-17">Transfer Ownership</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-18">Send NFT token</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-19">Send SFT token</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-19-5">Send ESDT token</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-19-6">Send Multi-token Transaction</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-20">Send EGLD</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-21">Retrieve Owned Tokens</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-22">Retrieve Token Balance</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-23">Retrieve Token Properties</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-23-5">Retrieve ESDT Properties</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-24">Get Owned Token Properties</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-25">Get Collection Properties</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-26">Ownership Proof</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-27">Collection Ownership Proof</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-27-5">Sign Message</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-28">Token Ownership Proof</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-29">Get Collection Owner</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-30">Get Emitted collections</a></li>
@@ -1608,6 +1616,78 @@ Emitted 10 tokens successfully
 Burned 10 tokens successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+				<section class="docs-section" id="item-3-10-5">
+						<h2 class="section-heading">Burn ESDT quantity</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar burnESDTQuantity</code></p>
+						<p>Burn a quantity of ESDT tokens. The public address of the wallet must possess the role <i>ESDTRoleLocalBurn</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_quantity</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Quantity of tokens to burn from the existing number of ESDT tokens on the address.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/3a899e605e55f0c0a3e0eb5cb66f9724.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Burned 10 tokens successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-11">
 						<h2 class="section-heading">Wipe NFT</h2>
@@ -1678,6 +1758,78 @@ Burned 10 tokens successfully
 						<br>
 						<div class="docs-code-block">							
 Wiped NFT successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
+
+				<section class="docs-section" id="item-3-11-5">
+						<h2 class="section-heading">Wipe ESDT</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar wipeESDT</code></p>
+						<p>Wipe (delete from the blockchain) all the ESDT tokens owned by an address. The collection must have the property <i>canWipe</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address of the owner of the token.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/076f48205d5d6805d58bb11cc9832aa8.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Wiped ESDT successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
 					
@@ -1752,6 +1904,78 @@ Wiped NFT successfully
 Froze NFT successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+				<section class="docs-section" id="item-3-12-5">
+						<h2 class="section-heading">Freeze ESDT</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar freezeESDT</code></p>
+						<p>Freeze (block the ability to send the token to another address) an ESDT owned by an address. The collection must have the property <i>canFreeze</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address of the owner of the token.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/604ed78671d47794c13f118620c0b689.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Froze ESDT successfully
+						</div><!--//docs-code-block-->
+					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-13">
 						<h2 class="section-heading">Unfreeze NFT</h2>
@@ -1824,6 +2048,79 @@ Froze NFT successfully
 Unfroze NFT successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+
+				<section class="docs-section" id="item-3-13-5">
+						<h2 class="section-heading">Unfreeze ESDT</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar unfreezeESDT</code></p>
+						<p>Unfreeze (restore the ability to send the token to another address) an ESDT owned by an address. The collection must have the property <i>canFreeze</i>.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_ownerAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address of the owner of the token.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/3a71c75f4026a20ba7dea3a535258488.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Unfroze ESDT successfully
+						</div><!--//docs-code-block-->
+					</section>
 					
 					<section class="docs-section" id="item-3-14">
 						<h2 class="section-heading">Transfer NFT Creation role</h2>
@@ -2395,6 +2692,163 @@ Sent "ABCD-012345-0a" successfully
 Sent 10 units of "ABCD-012345-0a" successfully
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+			<section class="docs-section" id="item-3-19-5">
+						<h2 class="section-heading">Send ESDT token</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar ESDTTransaction</code></p>
+						<p>Send an ESDT token to an address.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_destinationAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address to send the token to.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT (Ex: ABCD-012345).</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_amount</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Amount of tokens to send.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/6f0388fc7dd728b49fae205ce88ab6a8.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Sent 10 units of "ABCD-012345" successfully
+						</div><!--//docs-code-block-->
+					</section>
+
+
+				<section class="docs-section" id="item-3-19-6">
+						<h2 class="section-heading">Send Multi-token Transaction</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar MultiTransaction</code></p>
+						<p>Send a multiple transaction to an address.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Absolute or relative path to the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_destinationAddress</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Public address to send the token to.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_otherParamsCount</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>Number of transactions to make.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_otherParams</code></td>
+									<td><code style="white-space: nowrap;">char **</code></td>
+									<td>Array containing the following: Token type ('NFT', 'SFT', 'ESDT'), token name (a char *), quantity to send (a char *).</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Information about the success or failure of the operation.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/6f0388fc7dd728b49fae205ce88ab6a8.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+Sent 10 units of "ABCD-012345-01" successfully
+Sent 5 units of "ABCD-012345" successfully
+Sent 1 units of "ABCD-012345-02" successfully
+						</div><!--//docs-code-block-->
+					</section>
 					
 					<section class="docs-section" id="item-3-20">
 						<h2 class="section-heading">Send EGLD</h2>
@@ -2724,6 +3178,102 @@ Sent 1 EGLD to erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0
   </code></pre>
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+			<section class="docs-section" id="item-3-23-5">
+						<h2 class="section-heading">Retrieve ESDT Properties</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar getESDTProperties </code></p>
+						<p>Retrieve the properties of an ESDT token.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_tokenID</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>ID of the ESDT token (Ex: ABCD-012345).</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>If successful, returns a JSON with the token properties returned by the MultiversX API.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/8989a814864c82b7e7681f096ec778e3.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">
+<pre class="shadow-lg rounded"><code class="json hljs">{
+    "attributes": "bWV0YWRhdGE6aHR0cHM6Ly9pcGZzLmlvL2lwZnMvYmFmeWJlaWZqbnR3ZWpjN2s3ZGVkZmFhdnJhdmhub3NjN3hlNGNldTV6bW9iamhoYm9iMzJ1eXU1N20vOTMuanNvbjt0YWdzOmEsYixj",
+    "collection": "CTST-d07d34",
+    "creator": "erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0",
+    "identifier": "CTST-d07d34-01",
+    "isWhitelistedStorage": false,
+    "media": [
+        {
+            "fileSize": 29512,
+            "fileType": "image/png",
+            "originalUrl": "https://media.elrond.com/nfts/thumbnail/default.png",
+            "thumbnailUrl": "https://media.elrond.com/nfts/thumbnail/default.png",
+            "url": "https://media.elrond.com/nfts/thumbnail/default.png"
+        }
+    ],
+    "metadata": {
+        "error": {
+            "code": "ipfs_error",
+            "message": "IPFS error when fetching metadata: Invalid URL - ERR_ID:00004",
+            "timestamp": 1682024029
+        }
+    },
+    "name": "tokenTest",
+    "nonce": 1,
+    "owner": "erd1suej7d7yl5x95quuh38ur9x0vj2tdvy3rzuqx9n4dnulskyxvl0q0ec3n0",
+    "rarities": {},
+    "royalties": 75,
+    "tags": [
+        "a",
+        "b",
+        "c"
+    ],
+    "ticker": "CTST-d07d34",
+    "timestamp": 1682023992,
+    "type": "NonFungibleESDT",
+    "uris": [
+        ""
+    ]
+}
+  </code></pre>
+						</div><!--//docs-code-block-->
+					</section>
 					
 					<section class="docs-section" id="item-3-24">
 						<h2 class="section-heading">Get Owned Token Properties</h2>
@@ -3004,7 +3554,7 @@ cabfce3c7f4d52cf76d57b63f56dc19fcbe5093fae32ba5a1f9ed0928cbb5c665c6bc2c50ea682e7
 								<tr>
 									<td><code style="white-space: nowrap;">message</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>If successful, returns the strng "true". If not, returns the string "false".</td>
+									<td>If successful, returns the string "true". If not, returns the string "false".</td>
 								</tr>
 							</tbody>
 						</table>
@@ -3019,6 +3569,78 @@ cabfce3c7f4d52cf76d57b63f56dc19fcbe5093fae32ba5a1f9ed0928cbb5c665c6bc2c50ea682e7
 true
 						</div><!--//docs-code-block-->
 					</section><!--//section-->
+
+			<section class="docs-section" id="item-3-27-5">
+						<h2 class="section-heading">Sign Message</h2>
+						<p><code style="white-space: nowrap;">returnCodeAndChar signMessage</code></p>
+						<p>Returns a string signature of the provided message.</p>
+						<h5>Arguments:</h5>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">p_walletName</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Name of the JSON file on the hard-drive.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_password</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Password to decrypt the JSON file.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_plainText</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>Plaintext to generate signature from.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">p_computeHash</code></td>
+									<td><code style="white-space: nowrap;">bool</code></td>
+									<td>Wether we want to serialize the plaintext into a Keccak hash or not.</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<h5>Return Value:</h5>
+						<p><code style="white-space: nowrap;">returnCodeAndChar</code> structure containing the following fields:</p>
+						<table class="table-striped" style="margin-left: 25px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code style="white-space: nowrap;">retCode</code></td>
+									<td><code style="white-space: nowrap;">int</code></td>
+									<td>0 if the operation was successful, 1 if it wasn't.</td>
+								</tr>
+								<tr>
+									<td><code style="white-space: nowrap;">message</code></td>
+									<td><code style="white-space: nowrap;">char *</code></td>
+									<td>If successful, returns the hashed string.</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<h5>Usage example:</h5>
+						<br>
+						<script src="https://gist.github.com/dgomezde83/29bc631229b8c853cfa4a8cfb3eb55f4.js"></script>
+						<br>
+						<h5>Result:</h5>
+						<br>
+						<div class="docs-code-block">							
+hashed string
+						</div><!--//docs-code-block-->
+					</section>
 					
 					<section class="docs-section" id="item-3-28">
 						<h2 class="section-heading">Token Ownership Proof</h2>
@@ -3076,7 +3698,7 @@ true
 								<tr>
 									<td><code style="white-space: nowrap;">message</code></td>
 									<td><code style="white-space: nowrap;">char *</code></td>
-									<td>If successful, returns the strng "true". If not, returns the string "false".</td>
+									<td>If successful, returns the string "true". If not, returns the string "false".</td>
 								</tr>
 							</tbody>
 						</table>
